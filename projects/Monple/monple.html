@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monple | Ghaleb Saidi</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS for sliders -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        /* Additional Monple-specific styles */
+        .phase-header {
+            background-color: #1A1A1A;
+            padding: 40px 0;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .phase-header h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+        
+        .phase-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .phase-content {
+            padding: 30px 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        /* Enhanced sub-title styling */
+        .sub-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .sub-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .section-content {
+            margin-bottom: 25px;
+        }
+        
+        .section-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        /* Enhanced custom link styling */
+        .enhanced-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            padding: 12px 22px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .enhanced-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .enhanced-link:hover::before {
+            left: 0;
+        }
+        
+        .enhanced-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .enhanced-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .enhanced-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Improved Swiper container styles */
+        .swiper-container {
+            width: 100%;
+            margin: 30px 0 50px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+        
+        .swiper-container .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            height: auto;
+        }
+        
+        .swiper-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 600px;
+        }
+        
+        /* Improved navigation arrows */
+        .swiper-button-next,
+        .swiper-button-prev {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+        }
+        
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .swiper-pagination-bullet {
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: var(--primary-color);
+            transform: scale(1.3);
+        }
+        
+        /* Interview image and tall image container */
+        .interview-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tall-image-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 30px auto;
+            background-color: #222;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .tall-image-container.mind-map {
+            max-height: 1500px;
+        }
+        
+        .tall-image-container:not(.mind-map) {
+            max-height: 700px;
+        }
+        
+        .tall-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* Fixed section titles */
+        .section-title {
+            width: 100%;
+            clear: both;
+            padding-top: 20px;
+        }
+        
+        /* Video container and prototype link */
+        .video-container {
+            width: 100%;
+            height: 500px;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .prototype-link {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .prototype-link a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .prototype-link a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prototype-link a i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .prototype-link a:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Full-width image */
+        .full-width-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .phase-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .sub-title {
+                font-size: 1.15rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .phase-header {
+                padding: 30px 0;
+            }
+            
+            .tall-image-container {
+                max-height: 500px;
+            }
+            
+            .video-container {
+                height: 350px;
+            }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../../index.html">Ghaleb Saidi</a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="../../index.html">HOME</a></li>
+                        <li><a href="../../portfolio.html" class="active">PORTFOLIO</a></li>
+                        <li><a href="../../about.html">ABOUT</a></li>
+                        <li><a href="../../contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../portfolio.html">PORTFOLIO</a></li>
+            <li><a href="../../about.html">ABOUT</a></li>
+            <li><a href="../../contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="back-to-projects">
+                    <a href="../../index.html#projects/Monple"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                </div>
+                <h1 class="animate-on-scroll">MONPLE</h1>
+                <p class="project-subtitle animate-on-scroll delay-1">Mobile App UI/UX Design</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 1: Research & Understanding -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PHASE 1: Research & Understanding</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Challenge -->
+            <div class="section-content">
+                <h3 class="section-title">Challenge</h3>
+                <p>Design a mobile experience that simplifies personal finance management, providing users with an intuitive and accessible tool to track their finances effectively.</p>
+            </div>
+
+            <!-- Deliverables -->
+            <div class="section-content">
+                <h3 class="section-title">Deliverables</h3>
+                <p>User Personas, Site Map, User Flows, Ideation, Sketches, UI Design, Prototype</p>
+            </div>
+
+            <!-- Role -->
+            <div class="section-content">
+                <h3 class="section-title">Role</h3>
+                <p>Product Designer</p>
+            </div>
+
+            <!-- Goals and Objectives -->
+            <div class="section-content">
+                <h3 class="section-title">Goals and Objectives</h3>
+                <p>The goal was to create a seamless mobile experience that simplifies budgeting and expense tracking, enabling users to manage their finances with ease and efficiency.</p>
+                <a href="./goals_objectives.html" class="enhanced-link">Explore Detailed Goals & Objectives <i class="fas fa-angle-right"></i></a>
+            </div>
+
+            <!-- Challenges -->
+            <div class="section-content">
+                <h3 class="section-title">Challenges</h3>
+                <p><strong>Integrating Simplicity with Functionality</strong> – Ensuring the app is easy to use while offering essential features users want.</p>
+                <p><strong>User Onboarding</strong> – Designing a welcoming experience for new users without overwhelming them.</p>
+                <p><strong>Interface Design</strong> – Creating a visually appealing, simple interface that accommodates various input methods like voice and receipt scanning.</p>
+            </div>
+
+            <!-- Process -->
+            <div class="section-content">
+                <h3 class="section-title">Process</h3>
+                <p>My approach started with understanding user pain points through research. I then analyzed the findings to define core product tasks. From there, I created UI sketches, tested them with users, and refined the designs into a high-fidelity prototype.</p>
+            </div>
+
+            <!-- Research and Understanding -->
+            <div class="section-content">
+                <h3 class="section-title">Research and Understanding</h3>
+                <p><strong>Objective:</strong> To understand users' financial habits, preferences, and pain points, informing the design and development of the Monple app.</p>
+                
+                <h4 class="sub-title">Methodology</h4>
+                <p>Conducted a combination of surveys and interviews to gather qualitative and quantitative insights from diverse user groups such as students, freelancers, and young professionals.</p>
+                
+                <h4 class="sub-title">Research Questions</h4>
+                <ol>
+                    <li>How often do you track your expenses?</li>
+                    <li>What tools or apps do you currently use for personal finance?</li>
+                    <li>What features are most important to you in a finance app?</li>
+                    <li>What frustrates you most about current apps or methods?</li>
+                </ol>
+            </div>
+
+            <!-- Interview Highlights -->
+            <div class="section-content">
+                <h3 class="section-title">Interview Highlights</h3>
+                <img src="../../assets/interviews.png" alt="Interview Highlights" class="interview-image">
+            </div>
+
+            <!-- Conclusion of Research -->
+            <div class="section-content">
+                <h3 class="section-title">Conclusion of Research</h3>
+                <p>The synthesis of these insights informed the design direction, highlighting the need for simplicity, automation, and intuitive visual tools in the Monple app.</p>
+            </div>
+
+            <!-- Personas -->
+            <div class="section-content">
+                <h3 class="section-title">Personas</h3>
+                <p>Based on research, I created user personas to guide design decisions throughout the process, focusing on user needs and preferences for a simplified interface and diverse input methods.</p>
+                
+                <!-- Persona Slider using Swiper -->
+                <div class="swiper-container persona-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../assets/Persona of Daniel.png" alt="Persona: Daniel">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/Persona of Abdullah.png" alt="Persona: Abdullah">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/Persona of Nasser.png" alt="Persona: Nasser">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Empathy Mapping -->
+            <div class="section-content">
+                <h3 class="section-title">Empathy Mapping</h3>
+                <p>Created empathy maps to visualize user emotions, needs, and thoughts.</p>
+                
+                <!-- Empathy Map Slider using Swiper -->
+                <div class="swiper-container empathy-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../assets/E.M of Daniel.jpg" alt="Empathy Map: Daniel">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/E.M of Abdullah.jpg" alt="Empathy Map: Abdullah">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/E.M of Nasser.jpg" alt="Empathy Map: Nasser">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Competitor Analysis -->
+            <div class="section-content">
+                <h3 class="section-title">Competitor Analysis</h3>
+                <p>Analyzed competitors like YNAB and Goodbudget to identify design elements that work well and potential pitfalls.</p>
+            </div>
+
+            <!-- SWOT Analysis -->
+            <div class="section-content">
+                <h3 class="section-title">SWOT Analysis</h3>
+                <p>Identified strengths, weaknesses, opportunities, and threats to inform strategic planning.</p>
+                
+                <!-- SWOT Analysis Image -->
+                <img src="../../assets/SWOT ANALYSIS.png" alt="SWOT Analysis" class="full-width-image">
+                
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="swot.html" class="enhanced-link">Explore SWOT Analysis in Depth <i class="fas fa-chart-pie"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Define & Ideate -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PHASE 2: Define & Ideate</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- General Problem Statement -->
+            <div class="section-content">
+                <h3 class="section-title">General Problem Statement</h3>
+                <p>Many individuals struggle with tracking their daily finances effectively, often relying on pen and paper or generic apps that are time-consuming, unclear, overwhelming. This app will provide a simple, user-friendly solution tailored to their needs, helping users track earnings and expenses seamlessly.</p>
+            </div>
+
+            <!-- Project Goals & Objectives -->
+            <div class="section-content">
+                <h3 class="section-title">Project Goals & Objectives</h3>
+                <p>Create an intuitive design, solve user pain points, ensure user attraction and retention, and plan for scalability.</p>
+                <a href="./goals_objectives.html" class="enhanced-link">Dive Deeper into Project Goals <i class="fas fa-bullseye"></i></a>
+            </div>
+
+            <!-- Ideation Techniques -->
+            <div class="section-content">
+                <h3 class="section-title">Ideation Techniques</h3>
+                <h4 class="sub-title">Mind Mapping</h4>
+                
+                <!-- Taller container for mind map -->
+                <div class="tall-image-container mind-map">
+                    <img src="../../assets/Mind Maps.jpg" alt="Mind Map">
+                </div>
+
+                <h4 class="sub-title">Crazy 8s</h4>
+                <div class="tall-image-container">
+                    <img src="../../assets/crazy 8s.jpg" alt="Crazy 8s Technique">
+                </div>
+
+                <h4 class="sub-title">Sketching</h4>
+                <div class="tall-image-container">
+                    <img src="../../assets/sketch.jpg" alt="Sketches">
+                </div>
+
+                <h4 class="sub-title">Mini Case Study</h4>
+                <p>A detailed examination of the design thinking process that led to the final solution.</p>
+                <a href="./case_study.html" class="enhanced-link">Discover Design Process Case Study <i class="fas fa-lightbulb"></i></a>
+            </div>
+
+            <!-- User Stories & User Scenarios -->
+            <div class="section-content">
+                <h3 class="section-title">User Stories & User Scenarios</h3>
+                <p>Created user stories and scenarios to anticipate how users would interact with features like manual input, voice assistant, and receipt scanner.</p>
+                <a href="./stories_scenarios.html" class="enhanced-link">Explore User Stories & Scenarios <i class="fas fa-users"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: IA & Wireframing -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PHASE 3: IA & Wireframing</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Information Architecture -->
+            <div class="section-content">
+                <h3 class="section-title">Information Architecture</h3>
+                <p>Developed IA using Xminds to map out the app structure.</p>
+                
+                <div class="tall-image-container">
+                    <img src="../../assets/info arch.png" alt="Information Architecture">
+                </div>
+            </div>
+
+            <!-- Sitemap -->
+            <div class="section-content">
+                <h3 class="section-title">Sitemap</h3>
+                <p>Created detailed sitemap using Lucidchart.</p>
+                
+                <div class="tall-image-container">
+                    <img src="../../assets/site.png" alt="Sitemap">
+                </div>
+            </div>
+
+            <!-- Wireframes -->
+            <div class="section-content">
+                <h3 class="section-title">Wireframes</h3>
+                <p>Produced low-fidelity wireframes to outline the user flow.</p>
+                
+                <!-- Wireframes Slider -->
+                <div class="swiper-container wireframes-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../assets/wireframe1.png" alt="Wireframe 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/wireframe2.png" alt="Wireframe 2">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4: Visual Design & Prototyping -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PHASE 4: Visual Design & Prototyping</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Lo-Fi Prototype with Design Elements -->
+            <div class="section-content">
+                <h3 class="section-title">Lo-Fi Prototype with Design Elements</h3>
+                <p>Expanded on the wireframes by integrating colors and icons. This provided a preliminary view of the app's aesthetic, allowing for experimentation with color palettes and thematic elements.</p>
+                
+                <!-- Lo-Fi Prototype Slider -->
+                <div class="swiper-container lofi-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../assets/lofi1.png" alt="Lo-Fi Prototype 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/lofi2.png" alt="Lo-Fi Prototype 2">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Development of a Style Guide -->
+            <div class="section-content">
+                <h3 class="section-title">Development of a Style Guide</h3>
+                <p>Established a comprehensive style guide to ensure visual consistency across the app's interface, detailing color schemes, typography, and iconography.</p>
+            </div>
+
+            <!-- High-Fidelity Mockups -->
+            <div class="section-content">
+                <h3 class="section-title">High-Fidelity Mockups</h3>
+                <p>Transitioned from low-fi to high-fi prototypes, incorporating detailed design specifications and interaction elements to closely simulate the final user experience.</p>
+                
+                <!-- Hi-Fi Mockups Slider -->
+                <div class="swiper-container hifi-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="../../assets/hifi1.png" alt="Hi-Fi Mockup 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="../../assets/hifi2.png" alt="Hi-Fi Mockup 2">
+                        </div>
+                    </div>
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <!-- Prototyping Video -->
+            <div class="section-content">
+                <h3 class="section-title">Prototyping Video</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="../../assets/prototype vid.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="prototype-link">
+                    <a href="https://www.figma.com/proto/Dgtm2ByfDpgFqc3UNhq9oB/Finance-App?page-id=99%3A1310&node-id=99-1576&p=f&viewport=100%2C140%2C0.32&t=ed4fOiI5mlWSYj2w-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=99%3A1576" target="_blank">View Interactive Prototype <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 5: Testing & Iteration -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PHASE 5: Testing & Iteration</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Purpose -->
+            <div class="section-content">
+                <h3 class="section-title">Purpose</h3>
+                <p>The main goal was to collect initial user impressions and identify any areas for immediate improvement or clarification in the user experience.</p>
+            </div>
+
+            <!-- Feedback Summary -->
+            <div class="section-content">
+                <h3 class="section-title">Feedback Summary</h3>
+                
+                <h4 class="sub-title">Positive Reception</h4>
+                <p>Users found the app intuitive and appreciated the clear display of information.</p>
+                
+                <h4 class="sub-title">Smart Feature Highlight</h4>
+                <p>Friends noted the integration of the AI assistant as a smart and innovative feature, enhancing the ease of logging expenses.</p>
+                
+                <h4 class="sub-title">User Engagement</h4>
+                <p>The app was perceived as functional, with users expressing satisfaction at how quickly they could add expenses and income.</p>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="section-content">
+                <h3 class="section-title">Conclusion</h3>
+                <p>The Monple app successfully addresses core user needs, providing a user-friendly solution for managing personal finances. By maintaining a simple yet effective design, the app facilitates seamless budgeting and expense tracking, aligning with the initial project goals. This portfolio project showcases not only my design skills and user-centered approach but also demonstrates my ability to create practical solutions to real-world problems.</p>
+            </div>
+
+            <!-- Afterthought -->
+            <div class="section-content">
+                <h3 class="section-title">Afterthought</h3>
+                <p>Working on the Monple project has been both challenging and enlightening. Navigating through user research, design iterations, and feedback was an invaluable learning experience. I discovered the power of user-centric design and validated how small adjustments can lead to significant enhancements in user experience. The journey reaffirmed the necessity of flexibility and adaptability in UX design, especially when integrating innovative features like AI assistants. Moving forward, I look forward to applying these insights to create even more intuitive and impactful solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Projects Section -->
+<section class="more-projects">
+    <div class="container">
+        <div class="section-header animate-on-scroll">
+            <h2>More Projects</h2>
+        </div>
+        <div class="projects-grid animate-on-scroll delay-1">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../assets/Sarah Beauty Store Logo.png" alt="Sarah's Beauty Store">
+                    <div class="project-overlay">
+                        <a href="https://saidighaleb.github.io/sarahs-beauty-store/" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Static E-commerce Website</h4>
+                    <p>A responsive, user-friendly static website for an online beauty store.</p>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../assets/MONPLE.png" alt="Interactive Dashboard">
+                    <div class="project-overlay">
+                        <a href="webdev-project2.html" class="view-project">View Project</a>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Interactive Dashboard</h4>
+                    <p>Full-stack Development</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call To Action Section (reduce bottom padding) -->
+<section class="cta" style="padding-bottom: 60px;">
+    <div class="container">
+        <div class="cta-content animate-on-scroll">
+            <h2>Interested in Working Together?</h2>
+            <p>Let's discuss how I can help bring your ideas to life.</p>
+            <a href="../../contact.html" class="btn primary-btn">Get In Touch</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer (reduce top padding) -->
+<footer style="padding-top: 40px; padding-bottom: 20px;">
+    <div class="container">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; Designed & Built by Ghaleb Saidi</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize all Swiper sliders with common options
+        const swiperOptions = {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            centeredSlides: true,
+            autoHeight: true,
+            pagination: {
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        };
+        
+        // Persona slider
+        const personaSwiper = new Swiper('.persona-swiper', {
+            ...swiperOptions,
+            pagination: {
+                el: '.persona-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.persona-swiper .swiper-button-next',
+                prevEl: '.persona-swiper .swiper-button-prev',
+            }
+        });
+        
+        // Empathy slider
+        const empathySwiper = new Swiper('.empathy-swiper', {
+            ...swiperOptions,
+            pagination: {
+                el: '.empathy-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.empathy-swiper .swiper-button-next',
+                prevEl: '.empathy-swiper .swiper-button-prev',
+            }
+        });
+        
+        // Wireframes slider
+        const wireframesSwiper = new Swiper('.wireframes-swiper', {
+            ...swiperOptions,
+            pagination: {
+                el: '.wireframes-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.wireframes-swiper .swiper-button-next',
+                prevEl: '.wireframes-swiper .swiper-button-prev',
+            }
+        });
+        
+        // Lo-Fi slider
+        const lofiSwiper = new Swiper('.lofi-swiper', {
+            ...swiperOptions,
+            pagination: {
+                el: '.lofi-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.lofi-swiper .swiper-button-next',
+                prevEl: '.lofi-swiper .swiper-button-prev',
+            }
+        });
+        
+        // Hi-Fi slider
+        const hifiSwiper = new Swiper('.hifi-swiper', {
+            ...swiperOptions,
+            pagination: {
+                el: '.hifi-swiper .swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.hifi-swiper .swiper-button-next',
+                prevEl: '.hifi-swiper .swiper-button-prev',
+            }
+        });
+    });
+    
+    // Animate on scroll function
+    document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        
+        function checkScroll() {
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            animatedElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < triggerBottom) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        // Initial check
+        checkScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', checkScroll);
+    });
+</script>
+<script src="../../script.js"></script>
+</body>
+</html>

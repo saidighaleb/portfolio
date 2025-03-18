@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Stories & Scenarios | Monple Project</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        .page-content {
+            padding: 100px 0;
+            background-color: var(--background-color);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .intro-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .intro-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .intro-card h2 i {
+            font-size: 1.4rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+        }
+        
+        .intro-card p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin: 50px 0 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .user-stories-section {
+    margin: 40px 0 60px;
+}
+
+.user-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.story-card {
+    background: linear-gradient(145deg, #222222, #2d2d2d);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px; /* Set a minimum height for all cards */
+}
+
+.story-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.story-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.story-card .story-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.story-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    padding-right: 40px; /* Make space for the number */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.story-card h3 i {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.story-card p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.story-card .persona {
+    margin-top: auto;
+    background-color: rgba(139, 69, 19, 0.1);
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-style: italic;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 1200px) {
+    .user-stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .user-stories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+        
+        .scenario-section {
+            margin-top: 60px;
+        }
+        
+        .scenario-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scenario-header {
+            background: rgba(139, 69, 19, 0.2);
+            padding: 20px 25px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .scenario-number {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .scenario-title {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .scenario-title h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .scenario-title h3 i {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .scenario-title .character {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+        
+        .scenario-content {
+            padding: 25px;
+            line-height: 1.8;
+        }
+        
+        .benefit-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        .feature-icons {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--card-bg-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .feature-icon i {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .user-stories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-icons {
+                position: static;
+                margin-top: 15px;
+            }
+            
+            .scenario-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .scenario-number {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../../index.html">Ghaleb Saidi</a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="../../index.html">HOME</a></li>
+                        <li><a href="../../portfolio.html" class="active">PORTFOLIO</a></li>
+                        <li><a href="../../about.html">ABOUT</a></li>
+                        <li><a href="../../contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../portfolio.html">PORTFOLIO</a></li>
+            <li><a href="../../about.html">ABOUT</a></li>
+            <li><a href="../../contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <a href="./monple.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Monple Project</a>
+            
+            <h1>User Stories & User Scenarios</h1>
+            
+            <div class="intro-card">
+                <h2><i class="fas fa-user-friends"></i>User Stories</h2>
+                <p>As a [type of user], I want to [action] so that [benefit]</p>
+                <p>Below are key user stories identified to address user needs for expense tracking.</p>
+            </div>
+            
+            <div class="user-stories-section">
+                <div class="user-stories-grid">
+                    <div class="story-card">
+                        <div class="story-number">1</div>
+                        <h3><i class="fas fa-keyboard"></i>Manual Input Option</h3>
+                        <p>As a budget-conscious individual, I want to <span class="highlight">manually input my daily expenses</span> so that I can track my spending accurately and stay within my budget.</p>
+                        <div class="persona">A budget-conscious individual who prefers traditional manual tracking methods</div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-number">2</div>
+                        <h3><i class="fas fa-microphone"></i>Voice Assistant Feature</h3>
+                        <p>As a busy professional, I want to <span class="highlight">add expenses using a voice assistant</span> so that I can log my spending quickly without typing.</p>
+                        <div class="persona">A time-pressed professional who needs hands-free options</div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-number">3</div>
+                        <h3><i class="fas fa-receipt"></i>Receipt Scanner Feature</h3>
+                        <p>As a tech-savvy user, I want to <span class="highlight">scan receipts with my phone</span> so that I can avoid entering expenses manually.</p>
+                        <div class="persona">A technology-embracing user who wants automation</div>
+                    </div>
+                    
+                    <div class="story-card">
+                        <div class="story-number">4</div>
+                        <h3><i class="fas fa-robot"></i>AI-Powered Chatbot Feature</h3>
+                        <p>As a busy professional, I want to <span class="highlight">directly tell the AI assistant what I spent and on what category</span> so that my expenses are quickly logged without needing to navigate the app manually.</p>
+                        <div class="persona">A multi-tasking professional who needs intelligent assistance</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scenario-section">
+                <h2 class="section-title">User Scenarios</h2>
+                <p>The following scenarios illustrate how these features enhance the user experience</p>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="scenario-number">1</div>
+                        <div class="scenario-title">
+                            <h3><i class="fas fa-keyboard"></i>Manual Input Option</h3>
+                            <span class="character">Sara, a budget-conscious individual</span>
+                        </div>
+                        <div class="feature-icons">
+                            <div class="feature-icon" title="Manual Input Feature">
+                                <i class="fas fa-keyboard"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <p>Sara, a budget-conscious individual, is sitting at a coffee shop reviewing her expenses for the day. She opens the app, selects the "Add Expense" button, and manually inputs the amount spent on her coffee. After tapping "Confirm," she receives a streak notification congratulating her for logging her expenses for 7 consecutive days.</p>
+                        <span class="benefit-tag">Benefit: Accurate tracking & positive reinforcement</span>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="scenario-number">2</div>
+                        <div class="scenario-title">
+                            <h3><i class="fas fa-microphone"></i>Voice Assistant Feature</h3>
+                            <span class="character">John, a busy professional</span>
+                        </div>
+                        <div class="feature-icons">
+                            <div class="feature-icon" title="Voice Assistant Feature">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <p>John, a busy professional, is rushing to his next meeting. He remembers he just bought lunch but doesn't have time to type. He opens the app, activates the voice assistant, and says, "Add lunch expense, $12." The app processes the input instantly, confirms the addition, and John continues his day without delay.</p>
+                        <span class="benefit-tag">Benefit: Time-saving & convenience</span>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="scenario-number">3</div>
+                        <div class="scenario-title">
+                            <h3><i class="fas fa-receipt"></i>Receipt Scanner Feature</h3>
+                            <span class="character">Emily, a tech-savvy user</span>
+                        </div>
+                        <div class="feature-icons">
+                            <div class="feature-icon" title="Receipt Scanner Feature">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <p>Emily, a tech-savvy user, is at the grocery store checkout. After paying, she opens the app, selects the receipt scanner feature, and snaps a photo of her receipt. The app extracts and categorizes the details automatically, saving Emily the hassle of manual entry.</p>
+                        <span class="benefit-tag">Benefit: Automation & efficiency</span>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-header">
+                        <div class="scenario-number">4</div>
+                        <div class="scenario-title">
+                            <h3><i class="fas fa-robot"></i>AI-Powered Chatbot Feature</h3>
+                            <span class="character">Jack, a busy professional</span>
+                        </div>
+                        <div class="feature-icons">
+                            <div class="feature-icon" title="AI Chatbot Feature">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-content">
+                        <p>Jack, a busy professional, is driving home from work. He remembers he bought groceries earlier but forgot to log them. Using the app's AI assistant, he says, "I spent $50 on groceries." The assistant processes the input, creates a new "Groceries" category since it doesn't exist, logs the expense instantly, and confirms it with Jack. He continues driving without interruptions.</p>
+                        <span class="benefit-tag">Benefit: Hands-free tracking & intelligent categorization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; Designed & Built by Ghaleb Saidi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>

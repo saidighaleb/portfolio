@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground | Ghaleb Saidi</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        .playground-hero {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(40, 24, 13, 0.95) 100%);
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .playground-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--text-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: textGradient 4s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% {
+                background-position: 0% center;
+            }
+            50% {
+                background-position: 100% center;
+            }
+            100% {
+                background-position: 0% center;
+            }
+        }
+
+        .playground-hero-content h2 {
+            font-size: 1.6rem;
+            color: var(--secondary-text-color);
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .playground-section {
+            padding: 80px 0;
+            background-color: var(--background-color);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+            padding-top: 40px;
+        }
+
+        .section-intro p {
+            color: var(--secondary-text-color);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .experiment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 992px) {
+            .experiment-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+        
+        .experiment-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.4s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .experiment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .experiment-header {
+            padding: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .experiment-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .experiment-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .experiment-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .experiment-desc {
+            color: var(--secondary-text-color);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .experiment-container {
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 0;
+            flex-grow: 1;
+            position: relative;
+            min-height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .experiment-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .skill-tag {
+            background-color: rgba(139, 69, 19, 0.3);
+            color: var(--secondary-text-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Interactive Element Styles */
+        
+        /* Color Palette Generator Styles */
+        .color-palette {
+    display: flex;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    position: relative;
+    
+}
+        
+        .color-swatch {
+            flex: 1;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .color-swatch:hover {
+            flex: 1.5;
+        }
+        
+        .color-swatch::after {
+            content: attr(data-color);
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            color: white;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .color-swatch:hover::after {
+            opacity: 1;
+        }
+        
+        .palette-controls {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto; /* Changed from "15px auto 0" to "0 auto" */
+}
+
+.palette-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-left: 10px;
+}
+        
+        .palette-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Particle Animation Styles */
+        .particle-container {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+            }
+            25% {
+                transform: translateY(-50px) translateX(25px);
+            }
+            50% {
+                transform: translateY(-25px) translateX(-25px);
+            }
+            75% {
+                transform: translateY(50px) translateX(25px);
+            }
+        }
+        
+        /* Interactive Typography Styles */
+        .typography-playground {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .interactive-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin: 20px 0;
+            line-height: 1.3;
+        }
+        
+        .typography-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .control-group label {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+        }
+        
+        .control-group input {
+            width: 100%;
+            max-width: 100px;
+            padding: 5px;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        /* Loading Animation Styles */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 25px;
+        }
+        
+        .loader {
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+        
+        .loader-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary-color);
+            animation: spin 1s infinite linear;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .loader-inner {
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-bottom-color: var(--secondary-color);
+            animation: spin 1.5s infinite linear reverse;
+            position: absolute;
+            top: 15%;
+            left: 15%;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading-text {
+            color: var(--secondary-text-color);
+            font-size: 1.2rem;
+            position: relative;
+        }
+        
+        .loading-text::after {
+            content: '';
+            animation: ellipsis 1.5s infinite;
+        }
+        
+        @keyframes ellipsis {
+            0% {
+                content: '.';
+            }
+            33% {
+                content: '..';
+            }
+            66% {
+                content: '...';
+            }
+        }
+        
+        .loader-controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .loader-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .loader-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .experiment-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .playground-hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .playground-hero-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .experiment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .experiment-note {
+    margin-top: auto;
+    background-color: rgba(139, 69, 19, 0.1);
+    border-radius: var(--border-radius);
+    padding: 12px 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-style: italic;
+    color: var(--secondary-text-color);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.experiment-note i {
+    color: var(--primary-color);
+    font-size: 1rem;
+    margin-top: 2px;
+}
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+}
+
+#particle-playground {
+    cursor: pointer;
+}
+
+/* Shape Generator Styles */
+.shape-generator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.shape-preview {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.shape-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.control-row {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.control-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.control-group label {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+.shape-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: rgba(139, 69, 19, 0.2);
+    border-radius: 3px;
+    outline: none;
+}
+
+.shape-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.shape-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.shape-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: var(--border-radius);
+    margin-top: 10px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    align-self: center;
+    margin: 10px auto 0;
+}
+
+.shape-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Effects Styles */
+.text-effects-playground {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.effect-display {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    margin-bottom: 15px;
+}
+
+#effect-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+.effects-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.effect-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.effect-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.effect-button:hover, .effect-button.active {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.effect-input-container {
+    display: flex;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#custom-text {
+    flex: 1;
+    padding: 8px 15px;
+    border: none;
+    background-color: #333;
+    color: white;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    font-family: 'Poppins', sans-serif;
+}
+
+#apply-text {
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#apply-text:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Text effect classes */
+.effect-glow {
+    text-shadow: 0 0 10px rgba(139, 69, 19, 0.8), 
+                 0 0 20px rgba(139, 69, 19, 0.6), 
+                 0 0 30px rgba(139, 69, 19, 0.4);
+}
+
+.effect-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.effect-reveal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.effect-reveal:hover::before {
+    left: 100%;
+}
+
+.effect-vibrate:hover {
+    animation: vibrate 0.3s linear infinite;
+}
+
+@keyframes vibrate {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+.effect-gradient {
+    background: linear-gradient(45deg, 
+        #8B4513, /* Saddle Brown */
+        #D2691E, /* Chocolate */
+        #CD853F, /* Peru */
+        #DEB887, /* Burlywood */
+        #8B4513  /* Back to start for seamless loop */
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientFlow 2s linear infinite; /* Reduced from 3s to 2s */
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Adjust spacing for the "Coming Soon" section */
+.playground-section .section-intro:last-of-type {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">Ghaleb Saidi</a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="playground.html" class="active">PLAYGROUND</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="playground.html">PLAYGROUND</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="playground-hero">
+        <div class="container">
+            <div class="playground-hero-content animate-on-scroll">
+                <h1>Creative Playground</h1>
+                <h2>A space for my design and development experiments, interactive elements, and creative explorations</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- Playground Section -->
+    <section class="playground-section">
+        <div class="container">
+            <div class="section-intro animate-on-scroll">
+                <h2>Experiments & Interactions</h2>
+                <p>This is where I push the boundaries of what's possible with design and code. Each experiment represents a learning journey, exploring different techniques and interactions that make digital experiences more engaging and delightful.</p>
+            </div>
+            
+            <div class="experiment-grid">
+                <!-- Color Palette Generator -->
+                <div class="experiment-card animate-on-scroll">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Color Palette Generator</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">Generate harmonious color palettes with a single click. Each palette follows color theory principles to ensure aesthetically pleasing combinations.</p>
+                        
+                        <div class="experiment-container">
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #8B4513;" data-color="#8B4513"></div>
+                                <div class="color-swatch" style="background-color: #A0522D;" data-color="#A0522D"></div>
+                                <div class="color-swatch" style="background-color: #CD853F;" data-color="#CD853F"></div>
+                                <div class="color-swatch" style="background-color: #DEB887;" data-color="#DEB887"></div>
+                                <div class="color-swatch" style="background-color: #F5DEB3;" data-color="#F5DEB3"></div>
+                            </div>
+                            <div class="palette-controls">
+                                <button class="palette-button" id="generate-palette">Generate New Palette</button>
+                                <button class="palette-button" id="copy-palette">Copy HEX Codes</button>
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This experiment demonstrates my approach to creating intuitive color tools for designers.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- Interactive Typography -->
+                <div class="experiment-card animate-on-scroll delay-2">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Interactive Typography</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-font"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">Explore how typography can be interactive and dynamic. Adjust settings to see how they affect text appearance and readability.</p>
+                        
+                        <div class="experiment-container">
+                            <div class="typography-playground">
+                                <div class="interactive-text" id="interactive-text">Create With Passion</div>
+                                <div class="typography-controls">
+                                    <div class="control-group">
+                                        <label for="font-size">Size</label>
+                                        <input type="range" id="font-size" min="20" max="50" value="40">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="font-weight">Weight</label>
+                                        <input type="range" id="font-weight" min="300" max="900" value="700" step="100">
+                                    </div>
+                                    <div class="control-group">
+                                        <label for="letter-spacing">Spacing</label>
+                                        <input type="range" id="letter-spacing" min="-2" max="10" value="0" step="0.5">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This experiment explores the relationship between typography properties and visual impact in user interfaces.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Particle Animation -->
+                <div class="experiment-card animate-on-scroll delay-1">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Particle Animation</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">An interactive particle system that responds to cursor movement. Particles flow and react to create an engaging, dynamic background effect.</p>
+                        
+                        <div class="experiment-container" id="particle-playground">
+                            <div class="particle-container" id="particles">
+                                <!-- Particles will be generated here with JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This interactive element demonstrates how subtle animations can create engaging and responsive user experiences.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Custom Loading Animation -->
+                <div class="experiment-card animate-on-scroll delay-3">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Loading Animation</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-spinner"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">Custom-designed loading animations that provide visual feedback during wait times, making the user experience feel more responsive.</p>
+                        
+                        <div class="experiment-container">
+                            <div class="loading-container" id="loading-container">
+                                <div class="loader">
+                                    <div class="loader-circle"></div>
+                                    <div class="loader-inner"></div>
+                                </div>
+                                <div class="loading-text">Loading</div>
+                                <div class="loader-controls">
+                                    <button class="loader-button" id="toggle-loader">Pause/Play</button>
+                                    <button class="loader-button" id="change-loader">Change Style</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This experiment showcases my approach to creating meaningful loading states that enhance perceived performance.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXPERIMENT 5: INTERACTIVE SHAPE GENERATOR -->
+                <div class="experiment-card animate-on-scroll">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Shape Generator</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-shapes"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">Create and customize unique geometric shapes. Adjust parameters to explore endless variations of visual elements for your designs.</p>
+                        
+                        <div class="experiment-container">
+                            <div class="shape-generator">
+                                <div class="shape-preview" id="shape-preview"></div>
+                                <div class="shape-controls">
+                                    <div class="control-row">
+                                        <div class="control-group">
+                                            <label>Sides</label>
+                                            <input type="range" id="shape-sides" min="3" max="12" value="5" class="shape-slider">
+                                        </div>
+                                        <div class="control-group">
+                                            <label>Size</label>
+                                            <input type="range" id="shape-size" min="40" max="100" value="70" class="shape-slider">
+                                        </div>
+                                    </div>
+                                    <div class="control-row">
+                                        <div class="control-group">
+                                            <label>Rotation</label>
+                                            <input type="range" id="shape-rotation" min="0" max="360" value="0" class="shape-slider">
+                                        </div>
+                                        <div class="control-group">
+                                            <label>Roundness</label>
+                                            <input type="range" id="shape-roundness" min="0" max="50" value="10" class="shape-slider">
+                                        </div>
+                                    </div>
+                                    <button id="generate-random-shape" class="shape-button">Random Shape</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This experiment shows how interactive controls can help designers visualize and create custom geometric shapes.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXPERIMENT 6: TEXT EFFECT GENERATOR -->
+                <div class="experiment-card animate-on-scroll">
+                    <div class="experiment-header">
+                        <h3 class="experiment-title">Text Effects</h3>
+                        <div class="experiment-icon">
+                            <i class="fas fa-text-height"></i>
+                        </div>
+                    </div>
+                    <div class="experiment-content">
+                        <p class="experiment-desc">Explore dynamic text effects and animations that can be applied to headlines, buttons, and interactive elements in your designs.</p>
+                        
+                        <div class="experiment-container">
+                            <div class="text-effects-playground">
+                                <div class="effect-display" id="effect-display">
+                                    <span id="effect-text">Hover Me</span>
+                                </div>
+                                <div class="effects-controls">
+                                    <div class="effect-buttons">
+                                        <button class="effect-button" data-effect="glow">Glow</button>
+                                        <button class="effect-button" data-effect="reveal">Reveal</button>
+                                        <button class="effect-button" data-effect="vibrate">Vibrate</button>
+                                        <button class="effect-button" data-effect="gradient">Gradient</button>
+                                    </div>
+                                    <div class="effect-input-container">
+                                        <input type="text" id="custom-text" placeholder="Enter custom text..." maxlength="20">
+                                        <button id="apply-text">Apply</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="experiment-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This experiment demonstrates how subtle text animations can create engaging interactions that enhance user experience.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-intro animate-on-scroll">
+                <h2>Coming Soon</h2>
+                <p>More interactive experiments are in development! Check back regularly to see new additions to the playground, including animations, UI components, and creative coding explorations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="cta" style="padding-bottom: 60px;">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Let's Build Something Amazing Together</h2>
+                <p>Have a project in mind? Let's discuss how I can help bring your ideas to life.</p>
+                <a href="contact.html" class="btn primary-btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!--  <div class="footer-content">
+              <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                
+            </div>
+             -->
+            <div class="copyright">
+                <p>&copy; Designed & Built by Ghaleb Saidi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Color Palette Generator
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateButton = document.getElementById('generate-palette');
+            const copyButton = document.getElementById('copy-palette');
+            const swatches = document.querySelectorAll('.color-swatch');
+            
+            // Generate random color
+            function randomColor() {
+                const letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+            
+            // Generate a harmonious palette based on a seed color
+            function generatePalette() {
+                const baseColor = randomColor();
+                const rgb = hexToRgb(baseColor);
+                
+                // Convert to HSL to create variations
+                const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+                
+                // Create variations by adjusting hue and lightness
+                const colors = [baseColor];
+                
+                // Analogous colors
+                colors.push(hslToHex(
+                    (hsl.h + 30) % 360, 
+                    hsl.s, 
+                    clamp(hsl.l - 0.1, 0, 1)
+                ));
+                
+                colors.push(hslToHex(
+                    (hsl.h + 60) % 360, 
+                    hsl.s, 
+                    clamp(hsl.l, 0, 1)
+                ));
+                
+                // Complementary variations
+                colors.push(hslToHex(
+                    (hsl.h + 180) % 360, 
+                    hsl.s * 0.8, 
+                    clamp(hsl.l + 0.1, 0, 1)
+                ));
+                
+                colors.push(hslToHex(
+                    (hsl.h + 210) % 360, 
+                    hsl.s * 0.6, 
+                    clamp(hsl.l + 0.2, 0, 1)
+                ));
+                
+                // Apply colors to swatches
+                swatches.forEach((swatch, index) => {
+                    if (index < colors.length) {
+                        swatch.style.backgroundColor = colors[index];
+                        swatch.setAttribute('data-color', colors[index]);
+                    }
+                });
+            }
+            
+            // Helper functions for color conversion
+            function hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : null;
+            }
+            
+            function rgbToHsl(r, g, b) {
+                r /= 255, g /= 255, b /= 255;
+                const max = Math.max(r, g, b), min = Math.min(r, g, b);
+                let h, s, l = (max + min) / 2;
+                
+                if (max === min) {
+                    h = s = 0; // achromatic
+                } else {
+                    const d = max - min;
+                    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                    switch (max) {
+                        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                        case g: h = (b - r) / d + 2; break;
+                        case b: h = (r - g) / d + 4; break;
+                    }
+                    h /= 6;
+                }
+                
+                return { h: h * 360, s: s, l: l };
+            }
+            
+            function hslToRgb(h, s, l) {
+                let r, g, b;
+                
+                h /= 360;
+                
+                if (s === 0) {
+                    r = g = b = l; // achromatic
+                } else {
+                    const hue2rgb = (p, q, t) => {
+                        if (t < 0) t += 1;
+                        if (t > 1) t -= 1;
+                        if (t < 1/6) return p + (q - p) * 6 * t;
+                        if (t < 1/2) return q;
+                        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+                        return p;
+                    };
+                    
+                    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+                    const p = 2 * l - q;
+                    
+                    r = hue2rgb(p, q, h + 1/3);
+                    g = hue2rgb(p, q, h);
+                    b = hue2rgb(p, q, h - 1/3);
+                }
+                
+                return {
+                    r: Math.round(r * 255),
+                    g: Math.round(g * 255),
+                    b: Math.round(b * 255)
+                };
+            }
+            
+            function hslToHex(h, s, l) {
+                const rgb = hslToRgb(h, s, l);
+                return rgbToHex(rgb.r, rgb.g, rgb.b);
+            }
+            
+            function rgbToHex(r, g, b) {
+                return `#${componentToHex(r)}${componentToHex(g)}${componentToHex(b)}`;
+            }
+            
+            function componentToHex(c) {
+                const hex = c.toString(16);
+                return hex.length === 1 ? '0' + hex : hex;
+            }
+            
+            function clamp(value, min, max) {
+                return Math.min(Math.max(value, min), max);
+            }
+            
+            // Generate initial palette
+            generatePalette();
+            
+            // Event listeners
+            generateButton.addEventListener('click', generatePalette);
+            
+            copyButton.addEventListener('click', function() {
+                const colors = Array.from(swatches).map(swatch => swatch.getAttribute('data-color'));
+                navigator.clipboard.writeText(colors.join(', ')).then(() => {
+                    alert('Color palette copied to clipboard!');
+                });
+            });
+            
+            // Particle Animation
+            // Create and initialize particles
+function initializeParticles() {
+    const particleContainer = document.getElementById('particles');
+    
+    // Clear existing particles
+    particleContainer.innerHTML = '';
+    
+    // Create new particles
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random size
+        const size = Math.random() * 15 + 5;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        
+        // Store original position for scatter effect
+        particle.dataset.originalX = posX;
+        particle.dataset.originalY = posY;
+        
+        // Random color (browns/oranges)
+        const hue = Math.random() * 30 + 15;
+        particle.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
+        
+        // Faster transition for immediate response
+        particle.style.transition = 'all 0.2s cubic-bezier(0.05, 0.9, 0.25, 1.0)';
+        
+        // Add to container
+        particleContainer.appendChild(particle);
+    }
+}
+
+// Initialize particles on page load
+initializeParticles();
+
+// Handle mouse/touch interaction with particles
+const particlePlayground = document.getElementById('particle-playground');
+let isMouseInside = false;
+
+function moveParticlesToCursor(x, y) {
+    const containerRect = particlePlayground.getBoundingClientRect();
+    const particles = document.querySelectorAll('.particle');
+    
+    particles.forEach((particle, index) => {
+        // Calculate offset (creates a cluster effect)
+        const offsetX = (Math.sin(index) * 10) - 5;
+        const offsetY = (Math.cos(index) * 10) - 5;
+        
+        // Position particle directly at cursor with offset
+        const left = ((x - containerRect.left) / containerRect.width) * 100 + offsetX;
+        const top = ((y - containerRect.top) / containerRect.height) * 100 + offsetY;
+        
+        // Apply fastest possible transition
+        particle.style.transition = 'all 0.15s linear';
+        
+        particle.style.left = `${left}%`;
+        particle.style.top = `${top}%`;
+    });
+}
+
+function scatterParticles() {
+    const particles = document.querySelectorAll('.particle');
+    
+    particles.forEach((particle) => {
+        // Fast outward transition
+        particle.style.transition = 'all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.5)';
+        
+        // Get original position
+        const originalX = parseFloat(particle.dataset.originalX);
+        const originalY = parseFloat(particle.dataset.originalY);
+        
+        // Add random scatter effect with movement away from center
+        const scatterX = originalX + (Math.random() * 30 - 15);
+        const scatterY = originalY + (Math.random() * 30 - 15);
+        
+        // Apply scatter position
+        particle.style.left = `${scatterX}%`;
+        particle.style.top = `${scatterY}%`;
+    });
+}
+
+// Mouse event listeners
+particlePlayground.addEventListener('mousemove', function(e) {
+    isMouseInside = true;
+    moveParticlesToCursor(e.clientX, e.clientY);
+});
+
+particlePlayground.addEventListener('mouseenter', function(e) {
+    isMouseInside = true;
+    moveParticlesToCursor(e.clientX, e.clientY);
+});
+
+particlePlayground.addEventListener('mouseleave', function() {
+    isMouseInside = false;
+    scatterParticles();
+});
+
+// Touch event listeners for mobile
+particlePlayground.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    isMouseInside = true;
+    const touch = e.touches[0];
+    moveParticlesToCursor(touch.clientX, touch.clientY);
+});
+
+particlePlayground.addEventListener('touchstart', function(e) {
+    isMouseInside = true;
+    const touch = e.touches[0];
+    moveParticlesToCursor(touch.clientX, touch.clientY);
+});
+
+particlePlayground.addEventListener('touchend', function() {
+    isMouseInside = false;
+    scatterParticles();
+});
+
+// Add this CSS to make the particles more responsive
+document.head.insertAdjacentHTML('beforeend', `
+<style>
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    will-change: left, top;
+    pointer-events: none;
+}
+
+#particle-playground {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+</style>
+`);
+            
+            // Interactive Typography
+            const textElement = document.getElementById('interactive-text');
+            const fontSizeInput = document.getElementById('font-size');
+            const fontWeightInput = document.getElementById('font-weight');
+            const letterSpacingInput = document.getElementById('letter-spacing');
+            
+            // Initialize with random text options
+            const textOptions = [
+                "Typography is Design",
+                "Design with Purpose",
+                "Create with Passion",
+                "Build with Intention",
+                "Explore Possibilities"
+            ];
+            
+            textElement.textContent = textOptions[Math.floor(Math.random() * textOptions.length)];
+            
+            // Update text styles based on inputs
+            function updateTypography() {
+                textElement.style.fontSize = `${fontSizeInput.value}px`;
+                textElement.style.fontWeight = fontWeightInput.value;
+                textElement.style.letterSpacing = `${letterSpacingInput.value}px`;
+            }
+            
+            // Add event listeners to sliders
+            fontSizeInput.addEventListener('input', updateTypography);
+            fontWeightInput.addEventListener('input', updateTypography);
+            letterSpacingInput.addEventListener('input', updateTypography);
+            
+            // Change text on click
+            textElement.addEventListener('click', function() {
+                const newText = textOptions[Math.floor(Math.random() * textOptions.length)];
+                this.textContent = newText;
+            });
+            
+            // Custom Loading Animation
+            const loaderContainer = document.getElementById('loading-container');
+            const toggleButton = document.getElementById('toggle-loader');
+            const changeButton = document.getElementById('change-loader');
+            const loader = loaderContainer.querySelector('.loader');
+            const loadingText = loaderContainer.querySelector('.loading-text');
+            
+            let loaderIsAnimating = true;
+            let currentLoaderStyle = 1;
+            
+            // Toggle animation
+            toggleButton.addEventListener('click', function() {
+                loaderIsAnimating = !loaderIsAnimating;
+                
+                if (loaderIsAnimating) {
+                    loader.style.animationPlayState = 'running';
+                    loader.querySelector('.loader-circle').style.animationPlayState = 'running';
+                    loader.querySelector('.loader-inner').style.animationPlayState = 'running';
+                    loadingText.style.animationPlayState = 'running';
+                } else {
+                    loader.style.animationPlayState = 'paused';
+                    loader.querySelector('.loader-circle').style.animationPlayState = 'paused';
+                    loader.querySelector('.loader-inner').style.animationPlayState = 'paused';
+                    loadingText.style.animationPlayState = 'paused';
+                }
+            });
+            
+            // Change loader style
+            changeButton.addEventListener('click', function() {
+                currentLoaderStyle = (currentLoaderStyle % 3) + 1;
+                
+                // Remove existing loader
+                loader.innerHTML = '';
+                
+                // Create new loader based on style
+                switch(currentLoaderStyle) {
+                    case 1:
+                        // Default dual circle style
+                        loader.innerHTML = `
+                            <div class="loader-circle"></div>
+                            <div class="loader-inner"></div>
+                        `;
+                        break;
+                    case 2:
+                        // Pulsing dots style
+                        loader.innerHTML = '';
+                        loader.style.display = 'flex';
+                        loader.style.justifyContent = 'center';
+                        loader.style.alignItems = 'center';
+                        loader.style.gap = '8px';
+                        
+                        for (let i = 0; i < 3; i++) {
+                            const dot = document.createElement('div');
+                            dot.style.width = '15px';
+                            dot.style.height = '15px';
+                            dot.style.borderRadius = '50%';
+                            dot.style.backgroundColor = '#8B4513';
+                            dot.style.animation = `pulse 1.5s infinite ease-in-out ${i * 0.2}s`;
+                            
+                            // Add keyframes if they don't exist
+                            if (!document.querySelector('style#pulse-animation')) {
+                                const style = document.createElement('style');
+                                style.id = 'pulse-animation';
+                                style.textContent = `
+                                    @keyframes pulse {
+                                        0%, 100% { transform: scale(0.8); opacity: 0.5; }
+                                        50% { transform: scale(1.2); opacity: 1; }
+                                    }
+                                `;
+                                document.head.appendChild(style);
+                            }
+                            
+                            loader.appendChild(dot);
+                        }
+                        break;
+                    case 3:
+                        // Progress bar style
+                        loader.style.display = 'block';
+                        
+                        const progressBar = document.createElement('div');
+                        progressBar.style.width = '100%';
+                        progressBar.style.height = '8px';
+                        progressBar.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                        progressBar.style.borderRadius = '4px';
+                        progressBar.style.overflow = 'hidden';
+                        progressBar.style.position = 'relative';
+                        
+                        const progress = document.createElement('div');
+                        progress.style.height = '100%';
+                        progress.style.width = '30%';
+                        progress.style.backgroundColor = '#8B4513';
+                        progress.style.borderRadius = '4px';
+                        progress.style.position = 'absolute';
+                        progress.style.top = '0';
+                        progress.style.left = '0';
+                        progress.style.animation = 'progressMove 2s infinite ease-in-out';
+                        
+                        // Add keyframes if they don't exist
+                        if (!document.querySelector('style#progress-animation')) {
+                            const style = document.createElement('style');
+                            style.id = 'progress-animation';
+                            style.textContent = `
+                                @keyframes progressMove {
+                                    0% { left: -30%; }
+                                    100% { left: 100%; }
+                                }
+                            `;
+                            document.head.appendChild(style);
+                        }
+                        
+                        progressBar.appendChild(progress);
+                        loader.appendChild(progressBar);
+                        break;
+                }
+                
+                // Update loading text based on style
+                switch(currentLoaderStyle) {
+                    case 1:
+                        loadingText.textContent = 'Loading';
+                        break;
+                    case 2:
+                        loadingText.textContent = 'Please wait';
+                        break;
+                    case 3:
+                        loadingText.textContent = 'Processing';
+                        break;
+                }
+            });
+        });
+
+        // ===== SHAPE GENERATOR =====
+        const shapePreview = document.getElementById('shape-preview');
+        const sidesSlider = document.getElementById('shape-sides');
+        const sizeSlider = document.getElementById('shape-size');
+        const rotationSlider = document.getElementById('shape-rotation');
+        const roundnessSlider = document.getElementById('shape-roundness');
+        const randomButton = document.getElementById('generate-random-shape');
+        
+        // Create the shape element once
+        let shapeElement = null;
+        
+        function initializeShape() {
+            if (!shapePreview) return;
+            
+            // Clear preview and create shape element once
+            shapePreview.innerHTML = '';
+            shapeElement = document.createElement('div');
+            shapeElement.style.transition = 'all 0.3s ease';
+            shapePreview.appendChild(shapeElement);
+            
+            // Initial update
+            updateShape();
+        }
+        
+        function updateShape() {
+            if (!shapePreview || !shapeElement) return;
+            
+            const sides = parseInt(sidesSlider.value);
+            const size = parseInt(sizeSlider.value);
+            const rotation = parseInt(rotationSlider.value);
+            const roundness = parseInt(roundnessSlider.value);
+            
+            // Generate shape points
+            let clipPath = generatePolygonPoints(sides, size, roundness);
+            
+            // Update existing shape element
+            shapeElement.style.width = `${size * 2}px`;
+            shapeElement.style.height = `${size * 2}px`;
+            shapeElement.style.backgroundColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+            shapeElement.style.clipPath = clipPath;
+            shapeElement.style.transform = `rotate(${rotation}deg)`;
+        }
+        
+        function generatePolygonPoints(sides, size, roundness) {
+            if (sides < 3) return '';
+            
+            // Increase the roundness effect by scaling it more aggressively
+            const r = (roundness / 100) * (size * 0.8); // Increased from 0.25 to 0.8
+            const angleStep = (Math.PI * 2) / sides;
+            const center = size;
+            
+            let path = 'path("';
+            
+            for (let i = 0; i < sides; i++) {
+                const angle = i * angleStep;
+                const nextAngle = ((i + 1) % sides) * angleStep;
+                
+                // Current point
+                const x = center + size * Math.cos(angle);
+                const y = center + size * Math.sin(angle);
+                
+                // Next point
+                const nextX = center + size * Math.cos(nextAngle);
+                const nextY = center + size * Math.sin(nextAngle);
+                
+                if (i === 0) {
+                    path += `M ${x} ${y} `;
+                }
+                
+                // Create curved line to next point
+                if (roundness > 0) {
+                    // Increase control point distance for more pronounced curves
+                    const cpDist = r * Math.min(1.5, 3 / sides); // Increased multipliers
+                    
+                    // Control points with enhanced curve effect
+                    const cp1x = x + cpDist * Math.cos(angle + Math.PI/2);
+                    const cp1y = y + cpDist * Math.sin(angle + Math.PI/2);
+                    const cp2x = nextX + cpDist * Math.cos(nextAngle - Math.PI/2);
+                    const cp2y = nextY + cpDist * Math.sin(nextAngle - Math.PI/2);
+                    
+                    path += `C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${nextX} ${nextY} `;
+                } else {
+                    path += `L ${nextX} ${nextY} `;
+                }
+            }
+            
+            path += 'Z")';
+            return path;
+        }
+        
+        // Initialize shape generator if elements exist
+        if (shapePreview && sidesSlider && sizeSlider && rotationSlider && roundnessSlider) {
+            sidesSlider.addEventListener('input', updateShape);
+            sizeSlider.addEventListener('input', updateShape);
+            rotationSlider.addEventListener('input', updateShape);
+            roundnessSlider.addEventListener('input', updateShape);
+            
+            randomButton?.addEventListener('click', function() {
+                // Generate random values within meaningful ranges
+                sidesSlider.value = Math.floor(Math.random() * 7) + 3; // 3 to 9 sides
+                sizeSlider.value = Math.floor(Math.random() * 40) + 40; // 40 to 80 size
+                rotationSlider.value = Math.floor(Math.random() * 360); // 0 to 360 degrees
+                roundnessSlider.value = Math.floor(Math.random() * 50); // 0 to 50 roundness
+                
+                // Trigger the update
+                updateShape();
+            });
+            
+            // Initialize the shape
+            initializeShape();
+        }
+
+        // ===== TEXT EFFECTS =====
+        const effectText = document.getElementById('effect-text');
+        const customTextInput = document.getElementById('custom-text');
+        const applyTextButton = document.getElementById('apply-text');
+        const effectButtons = document.querySelectorAll('.effect-button');
+        
+        let activeEffect = '';
+        
+        function applyEffect(effectName) {
+            if (!effectText) return;
+            
+            effectText.className = '';
+            
+            if (effectName) {
+                effectText.classList.add(`effect-${effectName}`);
+                activeEffect = effectName;
+                
+                effectButtons.forEach(button => {
+                    button.classList.toggle('active', button.dataset.effect === effectName);
+                });
+            }
+        }
+        
+        // Initialize text effects if elements exist
+        if (effectText && customTextInput && applyTextButton) {
+            effectButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    applyEffect(this.dataset.effect);
+                });
+            });
+            
+            applyTextButton.addEventListener('click', function() {
+                const newText = customTextInput.value.trim();
+                if (newText) {
+                    effectText.textContent = newText;
+                }
+            });
+            
+            customTextInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    const newText = this.value.trim();
+                    if (newText) {
+                        effectText.textContent = newText;
+                    }
+                }
+            });
+            
+            effectText.addEventListener('mouseenter', function() {
+                if (!activeEffect) {
+                    this.textContent = 'Select an effect →';
+                }
+            });
+            
+            effectText.addEventListener('mouseleave', function() {
+                if (!activeEffect && this.textContent === 'Select an effect →') {
+                    this.textContent = 'Hover Me';
+                }
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

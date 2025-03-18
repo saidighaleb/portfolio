@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWOT Analysis | Monple</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        .page-content {
+            padding: 100px 0;
+            background-color: var(--background-color);
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link i {
+            margin-right: 8px;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            position: relative;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+        
+        .swot-section {
+            margin-bottom: 60px;
+        }
+        
+        .swot-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .swot-item {
+            margin-bottom: 15px;
+        }
+        
+        .swot-item h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .swot-item h3::before {
+            content: '•';
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .swot-item p {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .swot-visual {
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .swot-visual img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .swot-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .swot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .swot-card h2 {
+            border: none;
+            padding: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .swot-card h2 i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .swot-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .swot-card li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .swot-card li::before {
+            content: '→';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .swot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../../index.html">Ghaleb Saidi</a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="../../index.html">HOME</a></li>
+                        <li><a href="../../portfolio.html" class="active">PORTFOLIO</a></li>
+                        <li><a href="../../about.html">ABOUT</a></li>
+                        <li><a href="../../contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../portfolio.html">PORTFOLIO</a></li>
+            <li><a href="../../about.html">ABOUT</a></li>
+            <li><a href="../../contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Content -->
+    <section class="page-content">
+        <div class="container">
+            <a href="./monple.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Monple Project</a>
+            
+            <h1>SWOT Analysis</h1>
+            
+            <div class="swot-grid">
+                <!-- Strengths -->
+                <div class="swot-card">
+                    <h2><i class="fas fa-shield-alt"></i>Strengths</h2>
+                    <ul>
+                        <li><strong>Simple and intuitive design:</strong> The app will focus on clarity, ease of navigation, and being user-friendly, eliminating the poor and ambiguous designs seen in competitors like Goodbudget.</li>
+                        <li><strong>No onboarding overwhelm:</strong> Unlike YNAB, your app will not overwhelm users with too many questions during the sign-up process.</li>
+                        <li><strong>Free to start:</strong> Initially, the app will be free, with no ads or subscriptions, making it accessible to users and building trust before monetization.</li>
+                        <li><strong>Focus on needs:</strong> Tailored to users' real habits, replacing the need for paper, pen, or generic note apps with a personalized finance management solution.</li>
+                    </ul>
+                </div>
+                
+                <!-- Weaknesses -->
+                <div class="swot-card">
+                    <h2><i class="fas fa-exclamation-triangle"></i>Weaknesses</h2>
+                    <ul>
+                        <li><strong>Limited features at launch:</strong> Since the app focuses on simplicity, it may lack advanced features or tools that competitors offer, potentially alienating power users.</li>
+                        <li><strong>No initial revenue:</strong> Starting free means no early income, and sustainability will depend on user retention and eventual monetization.</li>
+                        <li><strong>Lack of immediate brand recognition:</strong> As a new app, it may take time to gain visibility and trust in the market.</li>
+                    </ul>
+                </div>
+                
+                <!-- Opportunities -->
+                <div class="swot-card">
+                    <h2><i class="fas fa-lightbulb"></i>Opportunities</h2>
+                    <ul>
+                        <li><strong>Untapped audience:</strong> Many people currently use paper, pen, or note apps for tracking finances. This demonstrates a gap your app can fill with a simple and efficient solution.</li>
+                        <li><strong>Market demand for simplicity:</strong> Users are looking for apps that are easy to use and not overwhelming—your app fits this niche.</li>
+                        <li><strong>Feedback-based improvement:</strong> Starting with a basic version gives room to iterate and improve based on user feedback.</li>
+                        <li><strong>Future scalability:</strong> After gaining a loyal user base, there are opportunities to introduce low-cost subscriptions, premium features, or ads to sustain and grow the app.</li>
+                    </ul>
+                </div>
+                
+                <!-- Threats -->
+                <div class="swot-card">
+                    <h2><i class="fas fa-bolt"></i>Threats</h2>
+                    <ul>
+                        <li><strong>High competition:</strong> Well-established apps like YNAB and Goodbudget have already built loyal user bases, making it hard to compete without a unique value proposition.</li>
+                        <li><strong>Low switching motivation:</strong> Many users may not see enough value to switch from their current habits (pen and paper or other apps) unless the app proves its efficiency.</li>
+                        <li><strong>Monetization challenges:</strong> Introducing ads or subscriptions in the future might risk alienating your loyal users if not done carefully.</li>
+                        <li><strong>Technological adaptability:</strong> If the app doesn't keep up with new trends or advanced features (e.g., AI or automation), it may lose relevance.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="swot-visual">
+                <img src="../../assets/SWOT ANALYSIS.png" alt="SWOT Analysis Visual">
+            </div>
+            
+            <div class="swot-section">
+                <h2>Strategic Implications</h2>
+                <div class="swot-item">
+                    <h3>Leverage Strengths Against Threats</h3>
+                    <p>The app's simplicity and user-friendly design can be emphasized in marketing to differentiate it from complex competitors. By focusing on the frustration users experience with other apps, Monple can position itself as the refreshing alternative in a crowded market.</p>
+                </div>
+                
+                <div class="swot-item">
+                    <h3>Address Weaknesses Through Opportunities</h3>
+                    <p>While launching with limited features may be a weakness, the market demand for simplicity presents an opportunity. The app can gradually introduce more advanced features based on user feedback, creating a natural evolution that remains true to its core value of simplicity.</p>
+                </div>
+                
+                <div class="swot-item">
+                    <h3>Future Development Roadmap</h3>
+                    <p>Based on this SWOT analysis, a clear development roadmap emerges: begin with core functionality that emphasizes ease of use, collect extensive user feedback, iterate rapidly on the most requested features, and only then consider monetization strategies that don't compromise the app's core values.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; Designed & Built by Ghaleb Saidi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
