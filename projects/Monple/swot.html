@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8N5HYC275G"></script> 
+    <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-8N5HYC275G'); 
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SWOT Analysis | Monple</title>
@@ -172,6 +182,37 @@
                 grid-template-columns: 1fr;
             }
         }
+       
+        /* Additional fixes specifically for SWOT page */
+@media (max-width: 768px) {
+    .swot-section {
+        margin-bottom: 30px !important;
+    }
+    
+    .swot-visual {
+        margin: 30px auto !important;
+    }
+    
+    .swot-item:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Force the page content to have minimal bottom padding */
+    .page-content {
+        padding-bottom: 20px !important;
+    }
+    
+    /* Reduce space in every possible container */
+    .container {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Ensure the footer sits closer to content */
+    footer {
+        padding-top: 20px !important;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -262,7 +303,7 @@
             </div>
             
             <div class="swot-visual">
-                <img src="../../assets/SWOT ANALYSIS.png" alt="SWOT Analysis Visual">
+                <img src="../../assets/SWOT ANALYSIS.webp" alt="SWOT Analysis Visual">
             </div>
             
             <div class="swot-section">
@@ -288,13 +329,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="social-links">
+            <!--  <div class="footer-content">
+              <div class="social-links">
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-tiktok"></i></a>
                 </div>
+                
             </div>
+             -->
             <div class="copyright">
                 <p>&copy; Designed & Built by Ghaleb Saidi</p>
             </div>

@@ -1,9 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8N5HYC275G"></script> 
+    <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-8N5HYC275G'); 
+    </script>
+
+    <!-- SEO Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monple | Ghaleb Saidi</title>
+    <meta name="description" content="Explore the Monple Finance App UI/UX design case study showcasing user research, design thinking, prototyping, and a multi-input approach to personal finance management.">
+<meta name="keywords" content="finance app UI design, UX case study, Monple, user-centered finance app, Ghaleb Saidi, mobile app design">
+<meta name="author" content="Ghaleb Saidi">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ghalebsaidi.com/projects/Monple/monple.html">
+<meta property="og:title" content="Monple Finance App | UI/UX Case Study by Ghaleb Saidi">
+<meta property="og:description" content="Explore the Monple Finance App UI/UX design case study showcasing user research, design thinking, prototyping, and a multi-input approach to personal finance management.">
+<meta property="og:image" content="https://ghalebsaidi.com/assets/MONPLE.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://ghalebsaidi.com/projects/Monple/monple.html">
+<meta property="twitter:title" content="Monple Finance App | UI/UX Case Study by Ghaleb Saidi">
+<meta property="twitter:description" content="Explore the Monple Finance App UI/UX design case study showcasing user research, design thinking, prototyping, and a multi-input approach to personal finance management.">
+<meta property="twitter:image" content="https://ghalebsaidi.com/assets/MONPLE.png">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://ghalebsaidi.com/projects/Monple/monple.html">
+
     <link rel="stylesheet" href="../../styles.css">
     <link rel="stylesheet" href="../../project.css">
     <!-- Google Fonts -->
@@ -323,6 +355,32 @@
                 height: 40px;
             }
         }
+
+        /* Fix spacing between SWOT analysis section and Phase 2 header */
+@media (max-width: 768px) {
+    /* Target the specific section ending with SWOT Analysis */
+    .section-content:has(a[href="swot.html"]) {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Reduce the space directly above the phase-header */
+    .phase-header {
+        margin-top: 30px !important;
+    }
+    
+    /* Alternative selector if :has() isn't supported in your target browsers */
+    .section-content a[href="swot.html"] {
+        margin-bottom: 0 !important;
+    }
+    
+    /* Target the container that holds the enhanced-link */
+    div[style*="text-align: center; margin-top: 20px"] {
+        margin-top: 10px !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -336,7 +394,7 @@
                 <nav class="desktop-nav">
                     <ul>
                         <li><a href="../../index.html">HOME</a></li>
-                        <li><a href="../../portfolio.html" class="active">PORTFOLIO</a></li>
+                        <li><a href="../../playground.html" class="active">PLAYGROUND</a></li>
                         <li><a href="../../about.html">ABOUT</a></li>
                         <li><a href="../../contact.html">CONTACT</a></li>
                     </ul>
@@ -354,7 +412,7 @@
     <div class="mobile-nav">
         <ul>
             <li><a href="../../index.html">HOME</a></li>
-            <li><a href="../../portfolio.html">PORTFOLIO</a></li>
+            <li><a href="../../playground.html">PLAYGROUND</a></li>
             <li><a href="../../about.html">ABOUT</a></li>
             <li><a href="../../contact.html">CONTACT</a></li>
         </ul>
@@ -404,7 +462,7 @@
             <div class="section-content">
                 <h3 class="section-title">Goals and Objectives</h3>
                 <p>The goal was to create a seamless mobile experience that simplifies budgeting and expense tracking, enabling users to manage their finances with ease and efficiency.</p>
-                <a href="./goals_objectives.html" class="enhanced-link">Explore Detailed Goals & Objectives <i class="fas fa-angle-right"></i></a>
+                <a href="./goals_objectives.html" class="enhanced-link">Explore Detailed Goals & Objectives<i class="fas fa-angle-right"></i></a>
             </div>
 
             <!-- Challenges -->
@@ -441,7 +499,7 @@
             <!-- Interview Highlights -->
             <div class="section-content">
                 <h3 class="section-title">Interview Highlights</h3>
-                <img src="../../assets/interviews.png" alt="Interview Highlights" class="interview-image">
+                <img src="../../assets/interviews.webp" alt="Interview Highlights" class="interview-image">
             </div>
 
             <!-- Conclusion of Research -->
@@ -459,13 +517,13 @@
                 <div class="swiper-container persona-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="../../assets/Persona of Daniel.png" alt="Persona: Daniel">
+                            <img src="../../assets/Persona of Daniel.webp" alt="Persona: Daniel">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/Persona of Abdullah.png" alt="Persona: Abdullah">
+                            <img src="../../assets/Persona of Abdullah.webp" alt="Persona: Abdullah">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/Persona of Nasser.png" alt="Persona: Nasser">
+                            <img src="../../assets/Persona of Nasser.webp" alt="Persona: Nasser">
                         </div>
                     </div>
                     <!-- Navigation buttons -->
@@ -485,13 +543,13 @@
                 <div class="swiper-container empathy-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="../../assets/E.M of Daniel.jpg" alt="Empathy Map: Daniel">
+                            <img src="../../assets/E.M of Daniel.webp" alt="Empathy Map: Daniel">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/E.M of Abdullah.jpg" alt="Empathy Map: Abdullah">
+                            <img src="../../assets/E.M of Abdullah.webp" alt="Empathy Map: Abdullah">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/E.M of Nasser.jpg" alt="Empathy Map: Nasser">
+                            <img src="../../assets/E.M of Nasser.webp" alt="Empathy Map: Nasser">
                         </div>
                     </div>
                     <!-- Navigation buttons -->
@@ -514,7 +572,7 @@
                 <p>Identified strengths, weaknesses, opportunities, and threats to inform strategic planning.</p>
                 
                 <!-- SWOT Analysis Image -->
-                <img src="../../assets/SWOT ANALYSIS.png" alt="SWOT Analysis" class="full-width-image">
+                <img src="../../assets/SWOT ANALYSIS.webp" alt="SWOT Analysis" class="full-width-image">
                 
                 <div style="text-align: center; margin-top: 20px;">
                     <a href="swot.html" class="enhanced-link">Explore SWOT Analysis in Depth <i class="fas fa-chart-pie"></i></a>
@@ -552,22 +610,22 @@
                 
                 <!-- Taller container for mind map -->
                 <div class="tall-image-container mind-map">
-                    <img src="../../assets/Mind Maps.jpg" alt="Mind Map">
+                    <img src="../../assets/Mind Maps.webp" alt="Mind Map">
                 </div>
 
                 <h4 class="sub-title">Crazy 8s</h4>
                 <div class="tall-image-container">
-                    <img src="../../assets/crazy 8s.jpg" alt="Crazy 8s Technique">
+                    <img src="../../assets/crazy 8s.webp" alt="Crazy 8s Technique">
                 </div>
 
                 <h4 class="sub-title">Sketching</h4>
                 <div class="tall-image-container">
-                    <img src="../../assets/sketch.jpg" alt="Sketches">
+                    <img src="../../assets/sketch.webp" alt="Sketches">
                 </div>
 
                 <h4 class="sub-title">Mini Case Study</h4>
                 <p>A detailed examination of the design thinking process that led to the final solution.</p>
-                <a href="./case_study.html" class="enhanced-link">Discover Design Process Case Study <i class="fas fa-lightbulb"></i></a>
+                <a href="./case_study.html" class="enhanced-link">Discover Design Process Case Study<i class="fas fa-lightbulb"></i></a>
             </div>
 
             <!-- User Stories & User Scenarios -->
@@ -594,7 +652,7 @@
                 <p>Developed IA using Xminds to map out the app structure.</p>
                 
                 <div class="tall-image-container">
-                    <img src="../../assets/info arch.png" alt="Information Architecture">
+                    <img src="../../assets/info arch.webp" alt="Information Architecture">
                 </div>
             </div>
 
@@ -604,7 +662,7 @@
                 <p>Created detailed sitemap using Lucidchart.</p>
                 
                 <div class="tall-image-container">
-                    <img src="../../assets/site.png" alt="Sitemap">
+                    <img src="../../assets/site.webp" alt="Sitemap">
                 </div>
             </div>
 
@@ -617,10 +675,10 @@
                 <div class="swiper-container wireframes-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="../../assets/wireframe1.png" alt="Wireframe 1">
+                            <img src="../../assets/wireframe1.webp" alt="Wireframe 1">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/wireframe2.png" alt="Wireframe 2">
+                            <img src="../../assets/wireframe2.webp" alt="Wireframe 2">
                         </div>
                     </div>
                     <!-- Navigation buttons -->
@@ -651,10 +709,10 @@
                 <div class="swiper-container lofi-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="../../assets/lofi1.png" alt="Lo-Fi Prototype 1">
+                            <img src="../../assets/lofi1.webp" alt="Lo-Fi Prototype 1">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/lofi2.png" alt="Lo-Fi Prototype 2">
+                            <img src="../../assets/lofi2.webp" alt="Lo-Fi Prototype 2">
                         </div>
                     </div>
                     <!-- Navigation buttons -->
@@ -680,10 +738,10 @@
                 <div class="swiper-container hifi-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img src="../../assets/hifi1.png" alt="Hi-Fi Mockup 1">
+                            <img src="../../assets/hifi1.webp" alt="Hi-Fi Mockup 1">
                         </div>
                         <div class="swiper-slide">
-                            <img src="../../assets/hifi2.png" alt="Hi-Fi Mockup 2">
+                            <img src="../../assets/hifi2.webp" alt="Hi-Fi Mockup 2">
                         </div>
                     </div>
                     <!-- Navigation buttons -->
@@ -761,29 +819,60 @@
             <h2>More Projects</h2>
         </div>
         <div class="projects-grid animate-on-scroll delay-1">
-            <div class="project-card">
+            <!-- Sarah's Beauty Store Project -->
+            <div class="project-card logo-display">
                 <div class="project-image">
-                    <img src="../../assets/Sarah Beauty Store Logo.png" alt="Sarah's Beauty Store">
+                    <img src="../../assets/Sarah Beauty Store Logo.webp" alt="Sarah's Beauty Store">
                     <div class="project-overlay">
-                        <a href="https://saidighaleb.github.io/sarahs-beauty-store/" class="view-project">View Project</a>
+                        <a href="https://saidighaleb.github.io/sarahs-beauty-store/" class="view-project" target="_blank">View Project</a>
                     </div>
                 </div>
                 <div class="project-info">
-                    <h4>Static E-commerce Website</h4>
-                    <p>A responsive, user-friendly static website for an online beauty store.</p>
+                    <h4>E-commerce Beauty Site</h4>
+                    <div class="project-note">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>This project showcases my frontend development skills with a focus on creating responsive, user-friendly e-commerce experiences.</span>
+                    </div>
                 </div>
             </div>
             
+            <!-- GymHub Coming Soon Project -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="../../assets/MONPLE.png" alt="Interactive Dashboard">
-                    <div class="project-overlay">
-                        <a href="webdev-project2.html" class="view-project">View Project</a>
+                    <img src="../../assets/GymHub.webp" alt="GymHub Project">
+                    <div class="project-overlay coming-soon-overlay">
+                        <div class="coming-soon-badge">
+                            <i class="fas fa-hourglass-half"></i>
+                            <span>Coming Soon</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-info">
-                    <h4>Interactive Dashboard</h4>
-                    <p>Full-stack Development</p>
+                    <h4>GymHub</h4>
+                    <div class="project-note">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>This upcoming project focuses on creating seamless social experience with motivational elements to enhance user engagement for gym-goers.</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lila's Boutique Store - Coming Soon Project -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="../../assets/Lila.webp" alt="Lila's Boutique Store">
+                    <div class="project-overlay coming-soon-overlay">
+                        <div class="coming-soon-badge">
+                            <i class="fas fa-hourglass-half"></i>
+                            <span>Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h4>Lila's Boutique Store</h4>
+                    <div class="project-note">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>This development project will demonstrate advanced e-commerce functionality with a focus on performance and conversion optimization.</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -801,16 +890,18 @@
     </div>
 </section>
 
-<!-- Footer (reduce top padding) -->
-<footer style="padding-top: 40px; padding-bottom: 20px;">
+<!-- Footer -->
+<footer>
     <div class="container">
-        <div class="footer-content">
-            <div class="social-links">
+        <!--  <div class="footer-content">
+          <div class="social-links">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-tiktok"></i></a>
             </div>
+            
         </div>
+         -->
         <div class="copyright">
             <p>&copy; Designed & Built by Ghaleb Saidi</p>
         </div>

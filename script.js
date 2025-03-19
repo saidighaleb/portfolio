@@ -308,3 +308,112 @@ if (contactForm) {
         }
     });
 }
+
+// Ensure complete button animation for View Project buttons
+document.addEventListener('DOMContentLoaded', function() {
+    // Target only the View Project buttons on the home page
+    const homePageProjectButtons = document.querySelectorAll('.project-card .project-overlay .view-project');
+    
+    // Target the exploration buttons on the Monple page
+    const explorationButtons = document.querySelectorAll('.enhanced-link');
+    
+    // For home page project buttons - ensure animation completes fully
+    homePageProjectButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                // Prevent default navigation momentarily
+                e.preventDefault();
+                
+                const href = this.getAttribute('href');
+                const button = this;
+                
+                // Force animation to complete fully
+                button.classList.add('complete-animation');
+                
+                // Navigate after a slightly longer delay
+                setTimeout(function() {
+                    window.location.href = href;
+                }, 200); // Increased from 150ms to 200ms for full completion
+            }
+        });
+    });
+    
+    // For exploration buttons - disable animations for immediate navigation
+    explorationButtons.forEach(button => {
+        button.classList.add('no-animation-mobile');
+    });
+});
+
+// Enhanced scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    // Initial check - animate elements already in view on page load
+    checkScroll();
+    
+    function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85; // Slightly higher trigger point
+        
+        animatedElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            
+            if (elementTop < triggerBottom) {
+                // Add visible class with eased timing
+                element.classList.add('visible');
+            }
+        });
+    }
+    
+    // Check on scroll with throttling for performance
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+        
+        scrollTimeout = window.requestAnimationFrame(function() {
+            checkScroll();
+        });
+    });
+});
+
+// Simple page transitions
+document.addEventListener('DOMContentLoaded', function() {
+    // Add transition overlay to the body
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition-overlay';
+    document.body.appendChild(overlay);
+    
+    // Show page with fade-in effect once loaded
+    document.body.classList.add('page-loaded');
+    
+    // Handle all internal link clicks
+    document.querySelectorAll('a[href^="/"]:not([target]), a[href^="./"]:not([target]), a[href^="../"]:not([target])').forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Only internal links, not external
+            if (this.hostname === window.location.hostname) {
+                e.preventDefault();
+                const target = this.getAttribute('href');
+                
+                // Start page transition out
+                document.body.classList.add('page-transitioning');
+                
+                // Navigate after transition
+                setTimeout(() => {
+                    window.location.href = target;
+                }, 400);
+            }
+        });
+    });
+});
+
+// Add lazy loading to images
+document.addEventListener('DOMContentLoaded', function() {
+    // Find all images that should be lazy loaded
+    const lazyImages = document.querySelectorAll('img:not([loading])');
+    
+    // Add loading="lazy" attribute to these images
+    lazyImages.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
+});

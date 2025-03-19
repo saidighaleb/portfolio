@@ -1066,3 +1066,132 @@ footer {
     align-items: center;
     flex: 1;
 }
+
+/* CSS for button animations - ensure 100% fill */
+.complete-animation::before {
+    left: 0 !important;
+    width: 100% !important;
+    transition-duration: 0.15s !important;
+}
+
+/* Additional forced styling to ensure full completion */
+.project-overlay .view-project.complete-animation::before {
+    transform: none !important;
+    opacity: 1 !important;
+}
+
+/* Disable animations only for exploration buttons on mobile */
+.no-animation-mobile,
+.no-animation-mobile::before {
+    transition: none !important;
+    animation: none !important;
+}
+
+@media (max-width: 768px) {
+    .enhanced-link::before {
+        display: none !important;
+    }
+}
+
+/* Enhanced Mobile Navigation Styling */
+.mobile-nav ul li a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.mobile-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* Show full underline for active page */
+.mobile-nav ul li a.active {
+    color: var(--primary-color);
+}
+
+.mobile-nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hover effect */
+.mobile-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.mobile-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Improved mobile menu layout */
+.mobile-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(26, 26, 26, 0.98), rgba(20, 20, 20, 0.98));
+    backdrop-filter: blur(10px);
+}
+
+.mobile-nav ul {
+    padding: 40px 0;
+}
+
+.mobile-nav ul li {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.mobile-nav ul li a {
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px); /* Reduced from 30px for subtlety */
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother easing */
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page transition styles */
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.page-loaded {
+    opacity: 1;
+}
+
+body.page-transitioning {
+    opacity: 0;
+}
+
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+body.page-transitioning .page-transition-overlay {
+    opacity: 1;
+}
