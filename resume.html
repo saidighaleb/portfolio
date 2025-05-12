@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghaleb Saidi - Resume</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2691E;
+            --dark-color: #222;
+            --light-color: #fff;
+            --text-dark: #333;
+            --text-light: #777;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: #f9f9f9;
+            line-height: 1.5;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* Fixed size optimized container */
+        .resume-container {
+            width: 670px;
+            height: 2532*2px;
+            margin: 0 auto;
+            background-color: var(--light-color);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 200px 1fr;
+        }
+        
+        /* Left sidebar */
+        .sidebar {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 30px 15px;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 6px;
+        }
+        
+        .sidebar-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .contact-info i {
+            width: 20px;
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        .contact-info a {
+            color: var(--light-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-color);
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            padding: 8px 12px;
+            border-radius: 4px;
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        
+        .portfolio-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .portfolio-link i {
+            margin-left: 5px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+        
+        .skill-name {
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .skill-level {
+            display: flex;
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-percentage {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .tech-skills {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+        
+        .tech-skills li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 12px;
+        }
+        
+        .tech-skills i {
+            color: var(--primary-color);
+            margin-right: 8px;
+            width: 14px;
+        }
+        
+        .tech-skills .proficiency {
+            font-style: italic;
+            font-size: 10px;
+            color: var(--primary-color);
+        }
+        
+        .lang-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        
+        .lang-box {
+            background-color: rgba(139, 69, 19, 0.2);
+            color: var(--light-color);
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .lang-box:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        .lang-box i {
+            font-size: 10px;
+        }
+        
+        .hobbies-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .hobbies-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+        }
+        
+        .hobbies-list i {
+            width: 20px;
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        /* Main content area */
+        .main-content {
+            padding: 30px 25px;
+            background-color: var(--light-color);
+            overflow: hidden;
+        }
+        
+        .header {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            color: var(--dark-color);
+        }
+        
+        .title {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 12px;
+            position: relative;
+            padding-bottom: 6px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .profile-text {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .experience-item {
+            margin-bottom: 15px;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .item-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: var(--dark-color);
+        }
+        
+        .item-subtitle {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--primary-color);
+            margin-bottom: 3px;
+        }
+        
+        .item-date {
+            font-size: 11px;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--text-dark);
+        }
+        
+        .item-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        
+        .skill-tag {
+            background-color: rgba(139, 69, 19, 0.1);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+        }
+        
+        .education-item {
+            margin-bottom: 10px;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .project-card {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .project-card h4 {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+        
+        .project-card p {
+            font-size: 11px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .project-tag {
+            background-color: rgba(139, 69, 19, 0.1);
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9px;
+        }
+        
+        .page-number {
+            position: absolute;
+            bottom: 15px;
+            right: 25px;
+            font-size: 11px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+        
+        /* Page 2 specific styles */
+        .certificate-item {
+            margin-bottom: 12px;
+        }
+        
+        .certificate-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .certificate-provider {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 2px;
+        }
+        
+        .provider-logo {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(139, 69, 19, 0.1);
+        }
+        
+        .provider-logo i {
+            font-size: 12px;
+            color: var(--primary-color);
+        }
+        
+        .certificate-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 5px;
+        }
+        
+        .certificate-tag {
+            background-color: rgba(139, 69, 19, 0.05);
+            color: var(--text-dark);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 9px;
+        }
+        
+        .quote {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 12px;
+            font-style: italic;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .quote::before {
+            content: '\201C';
+            font-size: 30px;
+            color: rgba(139, 69, 19, 0.2);
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+        
+        .quote::after {
+            content: '\201D';
+            font-size: 30px;
+            color: rgba(139, 69, 19, 0.2);
+            position: absolute;
+            bottom: -10px;
+            right: 10px;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-size: 10px;
+            margin-top: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .sidebar-section {
+    margin-bottom: 25px; /* Increased from 20px */
+    padding-bottom: 5px; /* Added padding */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Page 1 -->
+    <div class="resume-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <!-- Profile Image -->
+            <div class="profile-image">
+                <img src="assets/me.webp" alt="Ghaleb Saidi">
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Contact</h3>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:saidighaleb@gmail.com">saidighaleb@gmail.com</a>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+96181749400">+961 81 749 400</a>
+                </div>
+               <!-- Portfolio Link in a more elegant way -->
+<!-- Portfolio Link Section with corrected spacing -->
+<div class="sidebar-section" style="margin-bottom: 20px; padding-bottom: 0;">
+    <h3 class="sidebar-title">Portfolio</h3>
+    <div class="contact-info">
+        <i class="fas fa-globe"></i>
+        <a href="https://ghalebsaidi.com" target="_blank">ghalebsaidi.com</a>
+    </div>
+</div>
+            </div>
+           
+            <!-- Design Tools Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Design Tools</h3>
+                <ul class="tech-skills">
+                    <li>
+                        <div><i class="fab fa-figma"></i> Figma</div>
+                        <span class="proficiency">Advanced</span>
+                    </li>
+                    <li>
+                        <div><i class="fas fa-bezier-curve"></i> Adobe XD</div>
+                        <span class="proficiency">Advanced</span>
+                    </li>
+                    <li>
+                        <div><i class="fas fa-object-group"></i> Illustrator</div>
+                        <span class="proficiency">Intermediate</span>
+                    </li>
+                    <li>
+                        <div><i class="fas fa-layer-group"></i> Photoshop</div>
+                        <span class="proficiency">Intermediate</span>
+                    </li>
+                    <li>
+                        <div><i class="far fa-newspaper"></i> InDesign</div>
+                        <span class="proficiency">Intermediate</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Technical Skills Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Technical Skills</h3>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-name">UI/UX Fundamentals</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Wireframing & Prototyping</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">HTML, CSS, JavaScript</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">User Research</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 80%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Design Thinking</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Languages Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Languages</h3>
+                <ul class="tech-skills">
+                    <li>
+                        <div>English</div>
+                        <span class="proficiency">Fluent</span>
+                    </li>
+                    <li>
+                        <div>Arabic</div>
+                        <span class="proficiency">Native</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header with Name and Title -->
+            <div class="header">
+                <h1 class="name">GHALEB SAIDI</h1>
+                <h2 class="title">UI/UX Designer</h2>
+            </div>
+            
+            <!-- Profile Section -->
+            <div class="section">
+                <h3 class="section-title">Profile</h3>
+                <p class="profile-text">Customer-focused professional with experience in sales and UI/UX design. I excel in understanding client needs and providing tailored solutions with a consultative approach. My background in design gives me a unique perspective on product presentation and customer experience, allowing me to effectively communicate value to clients. I'm adept at building lasting relationships, managing priorities in fast-paced environments, and continuously adapting to meet both customer needs and business objectives.</p>
+            </div>
+            
+            <!-- Education Section -->
+            <div class="section">
+                <h3 class="section-title">Education</h3>
+                
+                <div class="education-item">
+                    <h4 class="item-title">B.S in Computer Science</h4>
+                    <h5 class="item-subtitle">LIU</h5>
+                    <div class="item-date">Oct 2022 — Jul 2025 (Expected)</div>
+                    <p class="item-description">Focusing on human-computer interaction, software engineering, and user-centered design principles. Relevant coursework includes web development, data structures, algorithms, and software design patterns, providing technical knowledge that enhances my ability to create implementable designs.</p>
+                </div>
+            </div>
+            
+           
+
+            <!-- Employment History Section (moved from page 2) -->
+<div class="section">
+    <h3 class="section-title">Employment History</h3>
+    
+    <div class="experience-item">
+        <h4 class="item-title">Sales Associate</h4>
+        <h5 class="item-subtitle">ABC Department</h5>
+        <div class="item-date">Aug 2023 — Feb 2024</div>
+        <p class="item-description">
+            Gained hands-on experience in customer engagement by understanding client needs, providing tailored recommendations, and ensuring a seamless shopping experience. Built lasting relationships through follow-ups and personalized service, enhancing customer loyalty. Managed stock coordination, communicated with different branches for product availability, and assisted in analyzing sales trends to improve performance. Adapted to various departments, developing a versatile and customer-centric approach to sales.
+        </p>
+        <div class="item-skills">
+            <span class="skill-tag">Customer Engagement</span>
+            <span class="skill-tag">Sales & Client Relations</span>
+            <span class="skill-tag">Product Consultation</span>
+            <span class="skill-tag">Stock Coordination</span>
+            <span class="skill-tag">Sales Data Analysis</span>
+            <span class="skill-tag">Cross-Selling</span>
+        </div>
+    </div>
+
+     <!-- Design Philosophy - Shortened -->
+<div class="section">
+    <h3 class="section-title">Business Philosophy</h3>
+    <p style="font-size: 12px; font-style: italic; line-height: 1.5; color: var(--text-dark); background-color: #f9f9f9; padding: 12px; border-left: 3px solid var(--primary-color); border-radius: 5px;">
+        I believe business success comes from creating genuine value for customers through understanding their real needs and challenges. Successful sales is not about transactions but about building trust and providing solutions that genuinely improve customers' lives or businesses. The foundation of sustainable business is ethical practices and long-term relationship building.
+        <div style="text-align: right; font-size: 10px; margin-top: 5px; font-weight: 600; color: var(--primary-color);">— My Business Approach</div>
+    </p>
+</div>
+    
+            
+            
+            <!-- <div class="page-number">1</div> -->
+        </div>
+    </div>
+
+    <!-- Page 2 -->
+    <div class="resume-container" style="margin-top: 20px;">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <!-- Design Skills Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Design Skills</h3>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-name">Information Architecture</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Responsive Design</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 90%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Interaction Design</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 85%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Visual Design</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 80%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Usability Testing</span>
+                        <div class="skill-level">
+                            <div class="skill-percentage" style="width: 75%;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Web Development Skills Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Programming</h3>
+                <div class="lang-container">
+                    <div class="lang-box">
+                        <i class="fab fa-html5"></i> HTML
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-css3-alt"></i> CSS
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-js"></i> JavaScript
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-php"></i> PHP
+                    </div>
+                    <div class="lang-box">
+                        <i class="fas fa-database"></i> SQL
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-java"></i> Java
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-python"></i> Python
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-cuttlefish"></i> C++
+                    </div>
+                    <div class="lang-box">
+                        <i class="fab fa-microsoft"></i> C#
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personal Values Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Soft Skills</h3>
+                <ul class="hobbies-list">
+                    <li><i class="fas fa-lightbulb"></i> Creativity</li>
+                    <li><i class="fas fa-users"></i> Collaboration</li>
+                    <li><i class="fas fa-seedling"></i> Growth</li>
+                    <li><i class="fas fa-ruler-combined"></i> Detail-oriented</li>
+                    <li><i class="fas fa-comment"></i> Communication</li>
+                    <li><i class="fas fa-puzzle-piece"></i> Problem Solving</li>
+
+                    <li><i class="fas fa-lightbulb"></i> Customer Relations</li>
+                    <li><i class="fas fa-users"></i> Sales Consultation</li>
+                    <li><i class="fas fa-seedling"></i> Growth</li>
+                    <li><i class="fas fa-ruler-combined"></i> Client Relationship Building</li>
+                    <li><i class="fas fa-comment"></i> Needs Assessment</li>
+                </ul>
+            </div>
+            
+            <!-- Interests Section -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">Interests</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px;">
+                    <div style="background-color: rgba(139, 69, 19, 0.2); border-radius: 5px; padding: 8px 5px; text-align: center; font-size: 11px;">
+                        <i class="fas fa-dumbbell" style="display: block; margin-bottom: 5px; font-size: 16px; color: var(--primary-color);"></i>
+                        Fitness
+                    </div>
+                    <div style="background-color: rgba(139, 69, 19, 0.2); border-radius: 5px; padding: 8px 5px; text-align: center; font-size: 11px;">
+                        <i class="fas fa-guitar" style="display: block; margin-bottom: 5px; font-size: 16px; color: var(--primary-color);"></i>
+                        Music
+                    </div>
+                    <div style="background-color: rgba(139, 69, 19, 0.2); border-radius: 5px; padding: 8px 5px; text-align: center; font-size: 11px;">
+                        <i class="fas fa-book" style="display: block; margin-bottom: 5px; font-size: 16px; color: var(--primary-color);"></i>
+                        Reading
+                    </div>
+                    <div style="background-color: rgba(139, 69, 19, 0.2); border-radius: 5px; padding: 8px 5px; text-align: center; font-size: 11px;">
+                        <i class="fas fa-brain" style="display: block; margin-bottom: 5px; font-size: 16px; color: var(--primary-color);"></i>
+                        Learning
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header with Name and Title -->
+            <div class="header">
+                <h1 class="name">GHALEB SAIDI</h1>
+                <h2 class="title">UI/UX Designer</h2>
+            </div>
+
+            <!-- Employment History Section -->
+            <div class="section">
+                <h3 class="section-title">Employment History</h3>
+                
+                <div class="experience-item">
+                    <h4 class="item-title">Runner & Bartender/Barista</h4>
+                    <h5 class="item-subtitle">Bartartine</h5>
+                    <div class="item-date">Jul 2021 — Nov 2021</div>
+                    <p class="item-description">Managed multiple concurrent tasks in a fast-paced environment, enhancing organizational skills critical for design project management. Streamlined workflows to improve efficiency, applying these concepts to user journey mapping and interface design. Developed communication skills working across diverse teams, strengthening my ability to present design concepts effectively.</p>
+                    <div class="item-skills" style="display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto;">
+                        <span class="skill-tag" style="white-space: nowrap; font-size: 9px;">Project Mgmt</span>
+                        <span class="skill-tag" style="white-space: nowrap; font-size: 9px;">Workflow Opt</span>
+                        <span class="skill-tag" style="white-space: nowrap; font-size: 9px;">Team Comms</span>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Key Projects Section -->
+             <div class="section">
+                <h3 class="section-title">Key Projects</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h4>Monple Finance App</h4>
+                        <p>Designed a personal finance management app with multiple input methods including voice commands, receipt scanning, and AI assistance based on extensive user research.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">User Research</span>
+                            <span class="project-tag">Wireframing</span>
+                            <span class="project-tag">Prototyping</span>
+                            <span class="project-tag">Mobile Design</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <h4>Sarah's Beauty Store</h4>
+                        <p>Developed a responsive e-commerce website focusing on intuitive product browsing with WhatsApp integration for direct ordering.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Responsive Design</span>
+                            <span class="project-tag">E-commerce</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications & Courses Section -->
+            <div class="section">
+                <h3 class="section-title">Certifications & Courses</h3>
+                
+                <div class="certificate-item">
+                    <h4 class="item-title">Google UX Design Professional Certificate</h4>
+                    <div class="certificate-provider">
+                        <div class="provider-logo">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <span>Google</span>
+                    </div>
+                    <div class="item-date">2024</div>
+                    <p class="item-description">Comprehensive UX design program covering the entire design process from research to high-fidelity prototyping.</p>
+                    <div class="item-skills">
+                        <span class="skill-tag">Foundations of UX</span>
+                        <span class="skill-tag">UX Research</span>
+                        <span class="skill-tag">Wireframing</span>
+                        <span class="skill-tag">Prototyping</span>
+                        <span class="skill-tag">Figma</span>
+                    </div>
+                </div>
+                
+                <div class="certificate-item">
+                    <h4 class="item-title">Fundamentals of UI/UX Design</h4>
+                    <div class="certificate-provider">
+                        <div class="provider-logo">
+                            <i class="fab fa-microsoft"></i>
+                        </div>
+                        <span>Microsoft</span>
+                    </div>
+                    <div class="item-date">2024</div>
+                    <p class="item-description">Microsoft's approach to creating accessible, intuitive interfaces that work across digital environments.</p>
+                </div>
+                
+                <div class="certificate-item">
+                    <h4 class="item-title">Graphic Design</h4>
+                    <div class="certificate-provider">
+                        <div class="provider-logo">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <span>Succeed & Achieve</span>
+                    </div>
+                    <div class="item-date">Feb 2023</div>
+                    <p class="item-description">Visual design foundations focused on color theory, typography, and composition for creating cohesive interfaces.</p>
+                </div>
+            </div>
+            
+        
+            
+            <!-- Additional Skills & Projects Section -->
+            <div class="section">
+                <h3 class="section-title">Design Methodologies</h3>
+                
+                <div class="experience-item">
+                    <h4 class="item-title">User Research & Testing</h4>
+                    <p class="item-description">Conducted user interviews, created empathy maps, and performed SWOT analysis to uncover user needs and preferences. Applied these insights to drive design decisions in projects like the Monple Finance App.</p>
+                    <div class="item-skills">
+                        <span class="skill-tag">Interviews</span>
+                        <span class="skill-tag">Empathy Mapping</span>
+                        <span class="skill-tag">SWOT Analysis</span>
+                        <span class="skill-tag">User Personas</span>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        
+            
+            <!-- <div class="page-number">2</div> -->
+        </div>
+    </div>
+</body>
+</html>

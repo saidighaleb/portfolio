@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-# Allow all bots to access all content
-Disallow:
-
-# Point to sitemap location
-Sitemap: https://ghalebsaidi.com/sitemap.xml
