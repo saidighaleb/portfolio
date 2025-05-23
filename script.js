@@ -417,3 +417,65 @@ document.addEventListener('DOMContentLoaded', function() {
         img.setAttribute('loading', 'lazy');
     });
 });
+
+// Enhanced mobile card interaction - IMAGE AREA ONLY
+document.addEventListener('DOMContentLoaded', function() {
+    // Only apply this behavior on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            let isOverlayVisible = false;
+            const overlay = card.querySelector('.project-overlay');
+            const imageArea = card.querySelector('.project-image'); // Only the image area
+            
+            // Skip cards that have coming-soon-overlay (they should stay visible)
+            if (overlay && overlay.classList.contains('coming-soon-overlay')) {
+                return;
+            }
+            
+            // Only add touch event to the IMAGE AREA, not the entire card
+            if (imageArea) {
+                imageArea.addEventListener('touchstart', function(e) {
+                    // Prevent the default behavior temporarily
+                    e.preventDefault();
+                    
+                    if (!isOverlayVisible) {
+                        // Show overlay
+                        if (overlay) {
+                            overlay.style.opacity = '1';
+                            overlay.style.transform = 'translateY(0)';
+                            isOverlayVisible = true;
+                        }
+                    } else {
+                        // Check if the touch target is a link
+                        const touchTarget = e.target.closest('a');
+                        if (touchTarget && touchTarget.classList.contains('view-project')) {
+                            // Let the link work normally
+                            touchTarget.click();
+                            return;
+                        }
+                        
+                        // Hide overlay if touching elsewhere in the image area
+                        if (overlay) {
+                            overlay.style.opacity = '0';
+                            overlay.style.transform = 'translateY(10px)';
+                            isOverlayVisible = false;
+                        }
+                    }
+                });
+            }
+            
+            // Reset overlay state when touching outside the image area
+            document.addEventListener('touchstart', function(e) {
+                if (imageArea && !imageArea.contains(e.target) && isOverlayVisible) {
+                    if (overlay) {
+                        overlay.style.opacity = '0';
+                        overlay.style.transform = 'translateY(10px)';
+                        isOverlayVisible = false;
+                    }
+                }
+            });
+        });
+    }
+});
