@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8N5HYC275G"></script> 
+    <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){dataLayer.push(arguments);} 
+        gtag('js', new Date()); 
+        gtag('config', 'G-8N5HYC275G'); 
+    </script>
+
+    <!-- SEO Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Accelerator | Ghaleb Saidi</title>
+    <meta name="description" content="AI/ML Weather App Design Assessment for PM Accelerator - A comprehensive mobile weather application designed for business travelers and long-term planners with multi-location tracking capabilities.">
+    <meta name="keywords" content="PM Accelerator, weather app design, UI/UX design assessment, mobile app design, Ghaleb Saidi">
+    <meta name="author" content="Ghaleb Saidi">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ghalebsaidi.com/projects/PM Accelerator/PMA.html">
+    <meta property="og:title" content="PM Accelerator Weather App | UI/UX Design by Ghaleb Saidi">
+    <meta property="og:description" content="AI/ML Weather App Design Assessment for PM Accelerator - A comprehensive mobile weather application designed for business travelers and long-term planners with multi-location tracking capabilities.">
+    <meta property="og:image" content="https://ghalebsaidi.com/assets/PM Accelerator Logo.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ghalebsaidi.com/projects/PM Accelerator/PMA.html">
+    <meta property="twitter:title" content="PM Accelerator Weather App | UI/UX Design by Ghaleb Saidi">
+    <meta property="twitter:description" content="AI/ML Weather App Design Assessment for PM Accelerator - A comprehensive mobile weather application designed for business travelers and long-term planners with multi-location tracking capabilities.">
+    <meta property="twitter:image" content="https://ghalebsaidi.com/assets/PM Accelerator Logo.webp">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ghalebsaidi.com/projects/PM Accelerator/PMA.html">
+
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../project.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Swiper CSS for sliders -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+        /* Additional PM Accelerator-specific styles */
+        .phase-header {
+            background-color: #1A1A1A;
+            padding: 40px 0;
+            margin: 15px 0 15px;
+            position: relative;
+        }
+        
+        .phase-header h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+        
+        .phase-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .phase-content {
+            padding: 20px 0;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .sub-title {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .sub-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+        
+        .section-content {
+            margin-bottom: 20px;
+        }
+        
+        .section-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .enhanced-link {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            padding: 12px 22px;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .enhanced-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+        
+        .enhanced-link:hover::before {
+            left: 0;
+        }
+        
+        .enhanced-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .enhanced-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .enhanced-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        .swiper-container {
+            width: 100%;
+            margin: 30px 0 50px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            position: relative;
+        }
+        
+        .swiper-container .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222;
+            height: auto;
+        }
+        
+        .swiper-container img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 600px;
+        }
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+        }
+        
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .swiper-pagination-bullet {
+            background-color: var(--primary-color);
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: var(--primary-color);
+            transform: scale(1.3);
+        }
+        
+        .full-width-image {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tall-image-container {
+            width: 100%;
+            max-width: 100%;
+            margin: 30px auto;
+            background-color: #222;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-height: 900px;
+        }
+        
+        .tall-image-container img {
+            width: 100%;
+            height: auto;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+        
+        .video-container {
+            width: 100%;
+            height: 500px;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .prototype-link {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .prototype-link a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .prototype-link a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prototype-link a i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .prototype-link a:hover i {
+            transform: translateX(5px);
+        }
+
+        .key-features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card h4 i {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-card li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-card li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-card li::before {
+            content: '•';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .project-overview {
+            padding: 100px 0 40px;
+        }
+
+        .more-projects {
+            padding: 60px 0;
+        }
+
+        .achievement-card {
+            background: linear-gradient(145deg, #222222, #2d2d2d);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .achievement-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .achievement-card h4 i {
+            font-size: 1.2rem;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 992px) {
+            .phase-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .sub-title {
+                font-size: 1.15rem;
+            }
+
+            .key-features-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .phase-header {
+                padding: 25px 0;
+                margin: 20px 0 15px;
+            }
+            
+            .tall-image-container {
+                max-height: 500px;
+            }
+            
+            .video-container {
+                height: 350px;
+            }
+            
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .phase-content {
+                padding: 15px 0;
+            }
+            
+            .section-content {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../../index.html">Ghaleb Saidi</a>
+                </div>
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="../../index.html">HOME</a></li>
+                        <li><a href="../../playground.html">PLAYGROUND</a></li>
+                        <li><a href="../../about.html">ABOUT</a></li>
+                        <li><a href="../../contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+        <ul>
+            <li><a href="../../index.html">HOME</a></li>
+            <li><a href="../../playground.html">PLAYGROUND</a></li>
+            <li><a href="../../about.html">ABOUT</a></li>
+            <li><a href="../../contact.html">CONTACT</a></li>
+        </ul>
+    </div>
+
+    <!-- Project Hero Section -->
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <div class="back-to-projects">
+                    <a href="../../index.html#projects"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                </div>
+                <h1 class="animate-on-scroll">PM Accelerator</h1>
+                <p class="project-subtitle animate-on-scroll delay-1">AI/ML Weather App Design Assessment | Mobile Application</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview Section -->
+    <section class="project-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content animate-on-scroll">
+                    <h2>Project Overview</h2>
+                    <p><strong>The Challenge:</strong> PM Accelerator, an AI/ML education platform, required a weather application design assessment. The task involved creating a user-centric mobile weather app serving two distinct user personas with different weather information needs.</p>
+                    
+                    <p><strong>My Role:</strong> Lead UI/UX Designer responsible for complete design process from research through high-fidelity prototyping.</p>
+                </div>
+                <div class="overview-details animate-on-scroll delay-1">
+                    <div class="detail-item">
+                        <h3>Company</h3>
+                        <p>PM Accelerator</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Duration</h3>
+                        <p>7 Days</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Role</h3>
+                        <p>UI/UX Designer</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Project Type</h3>
+                        <p>Mobile Application Design Assessment</p>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Tools Used</h3>
+                        <div class="tools-list">
+                            <span>Figma</span>
+                            <span>UI/UX Design</span>
+                            <span>Prototyping</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Requirements -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>CLIENT REQUIREMENTS</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Target Audiences -->
+            <div class="section-content">
+                <h3 class="section-title">Target Audiences</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-plane"></i>Primary: Business Travelers</h4>
+                        <p>Business travelers needing multi-location weather data with time zone considerations for quick decision-making across different cities.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-calendar-alt"></i>Secondary: Long-term Planners</h4>
+                        <p>Long-term planners requiring 1-month, 3-month, and 6-month weather forecasts for strategic seasonal planning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Features Requested -->
+            <div class="section-content">
+                <h3 class="section-title">Key Features Requested</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-map-marker-alt"></i>Multi-Location Tracking</h4>
+                        <ul>
+                            <li>Add/remove/reorder functionality</li>
+                            <li>Quick location comparison</li>
+                            <li>Time zone considerations</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-clock"></i>5-Day Detailed Forecast</h4>
+                        <ul>
+                            <li>Hourly breakdowns</li>
+                            <li>Daily planning views</li>
+                            <li>Weather trend analysis</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-eye"></i>Real-time Current Conditions</h4>
+                        <ul>
+                            <li>Live weather updates</li>
+                            <li>Current temperature display</li>
+                            <li>Weather condition indicators</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-cog"></i>User Preference Customization</h4>
+                        <ul>
+                            <li>Units (Celsius/Fahrenheit)</li>
+                            <li>Notification settings</li>
+                            <li>Theme options</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Requirements -->
+            <div class="section-content">
+                <h3 class="section-title">Technical Requirements</h3>
+                <p><span class="highlight">Mobile-first design approach</span> ensuring optimal experience across all device sizes with responsive layouts and touch-friendly interactions.</p>
+                <p><span class="highlight">High-fidelity prototype with smooth interactions</span> demonstrating realistic user flows and professional-grade interface animations.</p>
+                <p><span class="highlight">Integration of PM Accelerator branding</span> maintaining visual consistency with company identity and design standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Design Process -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>MY DESIGN PROCESS</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- User Research & Persona Development -->
+            <div class="section-content">
+                <h3 class="section-title">1. User Research & Persona Development</h3>
+                <p>I analyzed the two distinct user groups and their contrasting needs:</p>
+                <p><span class="highlight">Business travelers</span> require quick, comparative weather data across multiple cities for immediate travel decisions and schedule planning.</p>
+                <p><span class="highlight">Long-term planners</span> need seasonal trends and extended forecasting for strategic planning, event organization, and long-term decision making.</p>
+            </div>
+
+            <!-- Information Architecture -->
+            <div class="section-content">
+                <h3 class="section-title">2. Information Architecture</h3>
+                <p>Created intuitive navigation flow prioritizing user goals:</p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Home screen for quick location comparison</li>
+                    <li>Detailed forecast for immediate planning needs</li>
+                    <li>Dedicated long-term section for seasonal planning</li>
+                    <li>Streamlined settings for personalization</li>
+                </ul>
+                
+                <!-- Wireframe Image -->
+                <div class="tall-image-container">
+                    <img src="../../assets/Weather App Wireframe.webp" alt="Weather App Wireframe">
+                </div>
+            </div>
+
+            <!-- Design System Creation -->
+            <div class="section-content">
+                <h3 class="section-title">3. Design System Creation</h3>
+                <p>Developed cohesive visual language:</p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><span class="highlight">Dark theme</span> optimized for various lighting conditions</li>
+                    <li><span class="highlight">Yellow accent colors</span> for optimal visibility and brand consistency</li>
+                    <li><span class="highlight">Card-based layout system</span> for scalable content organization</li>
+                    <li><span class="highlight">Typography hierarchy</span> for enhanced readability</li>
+                </ul>
+                
+                <!-- Design System Image -->
+                <div class="tall-image-container">
+                    <img src="../../assets/Design System.webp" alt="Design System">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Design Solutions -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>KEY DESIGN SOLUTIONS</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Multi-Location Management -->
+            <div class="section-content">
+                <h3 class="section-title">Multi-Location Management</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-arrows-alt"></i>Drag-and-Drop Reordering</h4>
+                        <p>Personalized priority management for frequently accessed locations with intuitive card-based reordering system.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-search-plus"></i>Quick-Add Functionality</h4>
+                        <p>Search interface for rapid location addition with smart suggestions and autocomplete features.</p>
+                    </div>
+                </div>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-ellipsis-h"></i>Three-Dot Menu System</h4>
+                        <p>Streamlined location management with edit, remove, and favorite options accessible through context menus.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-eye"></i>Visual Weather Indicators</h4>
+                        <p>Instant comparison capabilities through clear iconography and color-coded weather status displays.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast Optimization -->
+            <div class="section-content">
+                <h3 class="section-title">5-Day Forecast Optimization</h3>
+                <p>I prioritized information hierarchy based on user decision-making patterns:</p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><span class="highlight">Prominent current temperature</span> for immediate context</li>
+                    <li><span class="highlight">Horizontal hourly scrolling</span> for detailed daily planning</li>
+                    <li><span class="highlight">Vertical 5-day overview</span> for quick weekly scanning</li>
+                    <li><span class="highlight">Comprehensive weather details</span> (humidity, wind, precipitation) in expandable overview</li>
+                </ul>
+            </div>
+
+            <!-- Long-Term Planning Interface -->
+            <div class="section-content">
+                <h3 class="section-title">Long-Term Planning Interface</h3>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li><span class="highlight">Toggle system for 1M/3M/6M views</span></li>
+                    <li><span class="highlight">Weekly average displays</span> for strategic planning</li>
+                    <li><span class="highlight">Seasonal trend indicators</span> for contextual insights</li>
+                    <li><span class="highlight">Consistent navigation</span> maintaining user familiarity</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Designs -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>FINAL DESIGNS</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- High-Fidelity Prototype -->
+            <div class="section-content">
+                <h3 class="section-title">High-Fidelity Prototype</h3>
+                
+                <div class="tall-image-container">
+                    <img src="../../assets/Weather App Hi-Fi.webp" alt="Weather App High-Fidelity Design">
+                </div>
+
+                <div class="prototype-link">
+                    <a href="https://www.figma.com/design/xjboaWnIeAm46VTABgHwQP/Weather-App?node-id=11-251&t=0XT3gpb074T1g3fX-1" target="_blank">View Figma Design File <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="prototype-link">
+                    <a href="https://www.figma.com/proto/xjboaWnIeAm46VTABgHwQP/Weather-App?page-id=11%3A251&node-id=17-370&p=f&viewport=948%2C465%2C0.27&t=9kMglTkdtjYJSaEM-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=17%3A370" target="_blank">View Interactive Prototype <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+
+            <!-- Prototype Video -->
+            <div class="section-content">
+                <h3 class="section-title">Video of the Prototype</h3>
+                <div class="video-container">
+                    <video controls>
+                        <source src="../../assets/Weather App Video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Decisions & Trade-offs -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>DESIGN DECISIONS & TRADE-OFFS</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Screen Real Estate vs Information Density -->
+            <div class="section-content">
+                <h3 class="section-title">Screen Real Estate vs. Information Density</h3>
+                <p>Rather than overwhelming users with data, I implemented a clean bottom navigation separating immediate forecasts from long-term planning, ensuring each user type gets focused, relevant information.</p>
+            </div>
+
+            <!-- Visual Hierarchy -->
+            <div class="section-content">
+                <h3 class="section-title">Visual Hierarchy</h3>
+                <p>Prioritized current temperature as the primary visual element, with supporting details accessible but not overwhelming, based on typical user scanning patterns.</p>
+            </div>
+
+            <!-- Accessibility Considerations -->
+            <div class="section-content">
+                <h3 class="section-title">Accessibility Considerations</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-eye"></i>High Contrast Ratios</h4>
+                        <p>Optimized for outdoor visibility with strong color contrast ensuring readability in various lighting conditions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-hand-pointer"></i>Large Touch Targets</h4>
+                        <p>Mobile interaction optimized with appropriately sized buttons and interactive elements for easy navigation.</p>
+                    </div>
+                </div>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-icons"></i>Clear Iconography</h4>
+                        <p>Weather icons paired with text labels ensuring understanding across different user groups and accessibility needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-sync"></i>Consistent Patterns</h4>
+                        <p>Uniform interaction patterns throughout the app reducing cognitive load and improving user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>TECHNICAL IMPLEMENTATION</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Design Tools Used -->
+            <div class="section-content">
+                <h3 class="section-title">Design Tools Used</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fab fa-figma"></i>Figma for Design</h4>
+                        <ul>
+                            <li>Wireframing and high-fidelity design</li>
+                            <li>Component-based design system</li>
+                            <li>Collaborative design workflow</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-mouse-pointer"></i>Interactive Prototyping</h4>
+                        <ul>
+                            <li>Realistic transitions and animations</li>
+                            <li>User flow demonstrations</li>
+                            <li>Clickable prototype testing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Outcomes -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>PROJECT OUTCOMES</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Assessment Results -->
+            <div class="section-content">
+                <h3 class="section-title">Assessment Results</h3>
+                <p>Successfully met all client requirements within 7-day timeline, demonstrating:</p>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-user-centric"></i>User-Centered Design</h4>
+                        <p>Deep understanding of user-centered design principles with clear persona-based solutions addressing distinct user needs.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-palette"></i>Professional Visual Design</h4>
+                        <p>Professional-grade visual design execution with cohesive design system and polished interface elements.</p>
+                    </div>
+                </div>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-brain"></i>Strategic Thinking</h4>
+                        <p>Strategic thinking in solving complex user experience challenges with innovative multi-persona solutions.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-tools"></i>Technical Proficiency</h4>
+                        <p>Demonstrated mastery of design tools and methodologies with production-ready deliverables.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Achievements -->
+            <div class="section-content">
+                <h3 class="section-title">Key Achievements</h3>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-users"></i>Dual-Persona Experience</h4>
+                        <p>Created intuitive dual-persona experience serving both business travelers and long-term planners seamlessly.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-layer-group"></i>Scalable Design System</h4>
+                        <p>Developed comprehensive, scalable design system ensuring consistency and future expandability.</p>
+                    </div>
+                </div>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-mobile-alt"></i>Production-Ready Prototype</h4>
+                        <p>Delivered high-fidelity, interactive prototype ready for development handoff with realistic interactions.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h4><i class="fas fa-chart-line"></i>Methodology Mastery</h4>
+                        <p>Demonstrated comprehensive understanding of design process from research through final implementation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Value Delivered -->
+    <div class="phase-header">
+        <div class="container">
+            <h2>ADDITIONAL VALUE DELIVERED</h2>
+        </div>
+    </div>
+
+    <section class="phase-content">
+        <div class="container">
+            <!-- Beyond Requirements -->
+            <div class="section-content">
+                <h3 class="section-title">Beyond Requirements</h3>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-file-code"></i>Design System Documentation</h4>
+                        <p>Comprehensive design system documentation for seamless development handoff with detailed specifications.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-play-circle"></i>Interactive Prototype</h4>
+                        <p>Fully interactive prototype with realistic data scenarios demonstrating complete user flows and interactions.</p>
+                    </div>
+                </div>
+                <div class="key-features-grid">
+                    <div class="feature-card">
+                        <h4><i class="fas fa-universal-access"></i>Accessibility Focus</h4>
+                        <p>Comprehensive accessibility considerations ensuring inclusive design for diverse user groups and needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4><i class="fas fa-tachometer-alt"></i>Performance Optimization</h4>
+                        <p>Performance-optimized asset organization with efficient file structure for smooth development integration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Projects Section -->
+    <section class="more-projects">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>More Projects</h2>
+            </div>
+            <div class="projects-grid animate-on-scroll delay-1">
+                <!-- Monple Project -->
+                <div class="project-card logo-display">
+                    <div class="project-image">
+                        <img src="../../assets/MONPLE.webp" alt="Monple Project">
+                        <div class="project-overlay">
+                            <a href="../Monple/monple.html" class="view-project">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Monple</h4>
+                        <div class="project-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>This project demonstrates my approach to creating intuitive, user-centered finance management interfaces with multiple input methods.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MBITS Innovations Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../../assets/MBITS.webp" alt="MBITS Innovations">
+                        <div class="project-overlay">
+                            <a href="../MBITS/mbits.html" class="view-project">View Task</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>MBITS Innovations Private Limited</h4>
+                        <div class="project-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Redesigned a WelNest app screen to enhance user experience, focusing on usability, visual design, and user motivation for daily engagement.</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Patra Technologies Project -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="../../assets/Patra Technologies Logo.webp" alt="Patra Technologies">
+                        <div class="project-overlay">
+                            <a href="../Patra/patra.html" class="view-project">View Task</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h4>Patra Technologies</h4>
+                        <div class="project-note">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Designed an e-book content page for BrainyJuice digital e-book "How to Learn Anything Fast" with focus on clean layout and visual hierarchy.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call To Action Section -->
+    <section class="cta" style="padding-bottom: 60px;">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Interested in Working Together?</h2>
+                <p>Let's discuss how I can help bring your ideas to life.</p>
+                <a href="../../contact.html" class="btn primary-btn">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; Designed & Built by Ghaleb Saidi</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate on scroll function
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            
+            function checkScroll() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                animatedElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < triggerBottom) {
+                        element.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkScroll();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+    <script src="../../script.js"></script>
+</body>
+</html>
